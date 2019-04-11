@@ -1,0 +1,87 @@
+server:
+  port: 8320
+spring:
+  application:
+    name: sreets
+    domain: iot.510link.com
+    ip: 47.97.126.246
+    admin: cqnews,yjwwtu
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/street2019?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 19870214
+    driverClassName: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    database: mysql
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  redis:
+    password: 19870214?liyu
+    database: 1
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 500
+        min-idle: 50
+        max-active: 2000
+        max-wait: 1000ms
+    host: 127.0.0.1
+    timeout: 3000ms
+  thymeleaf:
+    cache: false
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: utf-8
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cqnews:D4AmRlVgNH5rfWTN@47.97.126.246:8761/eureka/
+    enabled: true
+  instance:
+    hostname: iot.510link.com
+    ip-address: 47.97.126.246
+    prefer-ip-address: false
+    non-secure-port-enabled: false
+logging:
+  path: /logs/logs
+  level:
+    org:
+      springframework:
+        web: DEBUG
+      hibernate: ERROR
+    root: INFO
+shiro:
+  loginUrl: /login.html
+  # Let Shiro Manage the sessions
+  userNativeSessionManager: true
+  # disable URL session rewriting
+  sessionManager:
+    sessionIdUrlRewritingEnabled: false
+  successUrl: /
+  unauthorizedUrl: /
+sms:
+  config:
+    url: http://sms.ht3g.com/sms.aspx
+    userid: 305
+    account: "huilianadmin"
+    password: "19870214?liyu"
+    sign: 111
+    findpwdbody: 22
+    scverifybody: 333
+    sctraverifybody: 333
+    scupdatebody: 444
+    webcomebody:

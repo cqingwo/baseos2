@@ -1,0 +1,145 @@
+﻿/*
+ *
+ *  * Copyright (C) 2017.
+ *  * 用于JAVA项目开发
+ *  * 重庆青沃科技有限公司 版权所有
+ *  * Copyright (C)  2017.  CqingWo Systems Incorporated. All rights reserved.
+ *
+ */
+
+@charset "utf-8"; /* CSS Document */
+a:visitied {
+ text-decoration: none;
+ color: inherit;
+}
+a {
+	text-decoration: none;
+}
+.area1 {
+	border-bottom: 1px solid #26ade4;
+	width: 100%;
+}
+h3 {
+	font-size: 14px;
+	color: #333;
+}
+.icon {
+	font-size: 60px !important;
+	color: #2A3442;
+	clear: both;
+	display: block;
+	line-height: 1;
+}
+#main {
+    width: auto;
+    margin: 0 auto;
+}
+#main .main {
+	width: 100%;
+}
+#main .main h3 {
+	margin-top: 5px;
+	margin-bottom: 8px;
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+	display: inline-block;
+}
+#main .main .operation a {
+	margin-left: 5px;
+	color: #2d86d2 !important;
+	font-size: 12px;
+	display: inline-block;
+	margin-left: 3px;
+}
+#main .main .operation a:hover {
+	color: #2d86d2 !important;
+    
+}
+
+#main .main > ul {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+#main .main > ul li {
+	width: 300px;
+	display: inline-block;
+	border: 0px;
+	margin-right: -4px;
+	position: relative;
+	vertical-align: top;
+}
+#main .main > ul li:before {
+	content: "";
+	width: 100%;
+	height: 15px;
+	display: block;
+	overflow: hidden;
+	border-top: 1px solid #000;
+	background: url(../images/black.png) repeat-y center top;
+}
+
+#main .main > ul li.sonInfo1:before {
+	display:none;
+}
+#main .main > ul > li .subline {
+	display: inline-block;
+	height: 24px;
+	width: 100%;
+	background: url(../images/black.png) repeat-y center top;
+}
+#main .main > ul li:first-child:before {
+	width: 50%;
+	margin-left: 50%;
+	background: url(../images/black.png) repeat-y left top;
+}
+#main .main > ul li:last-child:before {
+	width: 50%;
+	background: url(../images/black.png) repeat-y right top;
+}
+#main .main > ul.huilian > li:before {
+	display: none;
+}
+#main .main > ul > li > ul {
+	width: 100%;
+}
+#main .main > ul > li > ul > li {
+	width: 25%;
+}
+#main .main > ul > li > ul > li > ul {
+	width: 100%;
+}
+#main .main > ul > li > ul > li > ul > li {
+	width: 100%;
+}
+#main .main > ul > li > ul > li > ul > li:before {
+	border-top: 0px;
+	margin-bottom: 3px;
+	position: relative;
+}
+#main .main > ul > li > ul > li > ul > li:first-child:before {
+	width: 100%;
+	margin-left: 0px;
+	background: url(../images/black.png) repeat-y center top;
+}
+#main .main > ul > li > ul > li > ul > li h3 {
+	margin-top: 5px;
+}
+#main .main > ul > li > ul > li > ul > li .icon {
+	font-size: 28px !important;
+	clear: both;
+}
+
+
+
+#main .main > ul li.positionInfo3:before
+{
+	    border-top: 0px;
+}
+
+#main .main > ul li.departInfo1:before{
+	
+	    border-top: 0px;
+		background:none;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>消息提示</title>
+    <link href="/site.css" th:href="${WorkContext.cssCDN + '/site.css'}" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.cqwo.com/js/jquery.min.js"></script>
+
+
+    <th:block th:if="${Model.autoBack}">
+        <meta http-equiv="refresh" content="5;URL=/" th:content="${Model.countDownTime + ',URL=' + Model.backUrl}"/>
+
+
+
+        <script type="text/javascript">
+
+            var backUrl = '[[${Model.backUrl}]]';
+            var time = '[[${Model.countDownTime}]]';
+        </script>
+
+        <script type="text/javascript" src="/static/admin/scripts/prompt.js"></script>
+    </th:block>
+</head>
+<body>
+<h1 class="rightH1">后台操作 &gt;&gt; 操作提示</h1>
+<div class="tip">
+    <h3>消息提示</h3>
+
+    <p th:text="${Model.message}"/>
+
+
+    <span th:if="${Model.autoBack}">
+
+
+    如果您不做出选择，将在
+    <span id="timer"></span>
+    秒后自动返回
+
+
+
+    <a href="/admin/" th:href="${Model.backUrl}" th:if="${Model.showBackLink}">点击返回</a>
+    <div class="loading"><img src="/static/admin/images/loading.gif" alt=""/></div>
+
+    </span>
+
+
+</div>
+<div id="bottom">
+    Copyright @2012-2018 510link.com Inc. All Rights Reserved
+    <br/>
+    程序版本:0.1.637
+</div>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div class="col-md-2" th:fragment="sidebar">
+    <div class="panel-group table-responsive" role="tablist" id="leftMenu">
+        <div class="panel panel-primary leftMenu">
+            <div class="panel-heading" id="collapseListGroupHeading1" data-toggle="collapse"
+                 data-target="#collapseListGroup1" role="tab">
+                <h4 class="panel-title"><i class="icon iconfont icon-guanli1"></i>快捷功能管理 <i
+                        class="icon iconfont icon-caretdown right"></i></h4>
+            </div>
+            <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"
+                 aria-labelledby="collapseListGroupHeading1">
+                <ul class="list-group">
+                    <a class="menu-item-left" href="/admin/order/list.html" target="main">
+                        <li class="list-group-item">待处置事件</li>
+                    </a>
+                </ul>
+            </div>
+
+
+            <div class="panel-heading" id="collapseListGroupHeading2" data-toggle="collapse"
+                 data-target="#collapseListGroup2" role="tab">
+                <h4 class="panel-title"><i class="icon iconfont icon-guanli1"></i>发现管理 <i
+                        class="icon iconfont icon-caretdown right"></i></h4>
+            </div>
+            <div id="collapseListGroup2" class="panel-collapse collapse in" role="tabpanel"
+                 aria-labelledby="collapseListGroupHeading2">
+                <ul class="list-group">
+                    <a class="menu-item-left" href="/admin/machine/list.html" target="main">
+                        <li class="list-group-item">在线报事</li>
+                    </a>
+
+                    <a class="menu-item-left" href="/admin/machine/online.html" target="main">
+                        <li class="list-group-item">发现物种</li>
+                    </a>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</div>

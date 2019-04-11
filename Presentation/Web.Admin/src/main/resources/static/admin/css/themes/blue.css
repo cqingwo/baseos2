@@ -1,0 +1,23 @@
+/*
+ *
+ *  * Copyright (C) 2017.
+ *  * 用于JAVA项目开发
+ *  * 重庆青沃科技有限公司 版权所有
+ *  * Copyright (C)  2017.  CqingWo Systems Incorporated. All rights reserved.
+ *
+ */
+
+@charset "utf-8";/* CSS Document */
+
+.navbar-inverse {
+    background: url(../../images/blue/barand.png);
+}
+
+.uers {
+    background-color:#FFF;
+    color: brown;
+}
+
+.uers a {
+    color: brown;
+}

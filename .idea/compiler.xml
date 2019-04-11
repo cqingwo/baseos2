@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Core" />
+        <module name="Data" />
+        <module name="Services" />
+        <module name="Strategy.Config" />
+        <module name="Strategy.Email" />
+        <module name="Strategy.Event" />
+        <module name="Strategy.Log" />
+        <module name="Strategy.Push" />
+        <module name="Strategy.RDBS" />
+        <module name="Strategy.Redis" />
+        <module name="Strategy.SMS" />
+        <module name="Strategy.UCenter" />
+        <module name="Strategy.Upload" />
+        <module name="Web" />
+        <module name="Web.Admin" />
+        <module name="Web.Api" />
+        <module name="Web.Framework" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BaseOs" target="1.8" />
+      <module name="Core" target="1.8" />
+      <module name="Data" target="1.8" />
+      <module name="OAuth.MiniApp" target="1.8" />
+      <module name="Pay.Wechat" target="1.8" />
+      <module name="Services" target="1.8" />
+      <module name="Strategy.Bank" target="1.8" />
+      <module name="Strategy.Config" target="1.8" />
+      <module name="Strategy.Email" target="1.8" />
+      <module name="Strategy.Event" target="1.8" />
+      <module name="Strategy.Log" target="1.8" />
+      <module name="Strategy.Push" target="1.8" />
+      <module name="Strategy.RDBS" target="1.8" />
+      <module name="Strategy.Redis" target="1.8" />
+      <module name="Strategy.SMS" target="1.8" />
+      <module name="Strategy.UCenter" target="1.8" />
+      <module name="Strategy.Upload" target="1.8" />
+      <module name="Web" target="1.8" />
+      <module name="Web.Admin" target="1.8" />
+      <module name="Web.Api" target="1.8" />
+      <module name="Web.Framework" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Core" options="-parameters" />
+      <module name="Data" options="-parameters" />
+      <module name="OAuth.MiniApp" options="-parameters" />
+      <module name="Pay.Wechat" options="-parameters" />
+      <module name="Services" options="-parameters" />
+      <module name="Strategy.Bank" options="-parameters" />
+      <module name="Strategy.Config" options="-parameters" />
+      <module name="Strategy.Email" options="-parameters" />
+      <module name="Strategy.Event" options="-parameters" />
+      <module name="Strategy.Log" options="-parameters" />
+      <module name="Strategy.Push" options="-parameters" />
+      <module name="Strategy.RDBS" options="-parameters" />
+      <module name="Strategy.Redis" options="-parameters" />
+      <module name="Strategy.SMS" options="-parameters" />
+      <module name="Strategy.UCenter" options="-parameters" />
+      <module name="Strategy.Upload" options="-parameters" />
+      <module name="Web" options="-parameters" />
+      <module name="Web.Admin" options="-parameters" />
+      <module name="Web.Api" options="-parameters" />
+      <module name="Web.Framework" options="-parameters" />
+    </option>
+  </component>
+</project>

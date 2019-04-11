@@ -1,0 +1,223 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>英卡电子</title>
+    <meta name="author" content="Cqingwo-Liu"/>
+    <meta name="copyright" content="Copyright (c) 2011 Cqingwo All Rights Reserved."/>
+
+    <!-- struts -->
+    <link href="/static/admin/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/miluo.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/formedit.css"/>
+
+    <!-- 调用远程jquery -->
+    <script src="https://cdn.cqwo.com/js/jquery.min.js"></script>
+    <!-- 调用Bootstrap-->
+    <script src="https://cdn.cqwo.com/js/bootstrap.min.js"></script>
+    <script src="/static/admin/scripts/jquery.validate.js"></script>
+    <script src="/static/admin/scripts/jquery.validate.unobtrusive.js"></script>
+    <!--公共JS方法-->
+    <script src="https://cdn.cqwo.com/js/commom.js" type="text/javascript"></script>
+    <!--调用本地插件-->
+
+    <link href="/components/fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="/components/fileinput/js/fileinput.js" type="text/javascript"></script>
+    <!--简体中文-->
+    <script src="/components/fileinput/js/locales/zh.js" type="text/javascript"></script>
+    <!--繁体中文-->
+    <script src="/components/fileinput/js/locales/zh-TW.js" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="/components/umeditor/themes/default/css/umeditor.css">
+    <script type="text/javascript" src="/components/umeditor/umeditor.config.js"></script>
+    <script type="text/javascript" src="/components/umeditor/umeditor.js"></script>
+    <script type="text/javascript" src="/components/umeditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" src="/static/admin/scripts/region.js"></script>
+
+    <script type="text/javascript">
+        var provinceId = 500000; //省id
+        var cityId = 500100; //市id
+        var countyId = 500233; //县或区id
+    </script>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.cqwo.com/js/html5shiv.min.js"></script>
+    <script src="https://cdn.cqwo.com/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        $('#litpicfile').fileinput({
+            language: 'zh',
+            dataType: 'json',
+            uploadUrl: "/admin/tool/upload?storeid=" + 66 + "&operation=uploadstorelogo",
+            allowedFileExtensions: ['png', 'jpg']
+        }).on("filebatchselected", function (event, files) {
+            $(this).fileinput("upload");
+        }).on("fileuploaded", function (event, data) {
+            var result = data.response;
+            if (result) {
+                var state = result.state;
+                if (state === "success") {
+
+                    var imgResult = result.content;
+
+                    if (imgResult === "-1") {
+                        alert("LOGO上传文件失败");
+                        return;
+                    } else if (imgResult === "-2") {
+
+                        alert("LOGO上传文件类型不正确,请上传png或者jpg图片");
+                        return;
+                    } else if (imgResult === "-3") {
+
+                        alert("LOGO上传文件过大,感谢亲的理解");
+                        return;
+                    }
+
+                    $("#Logo").val("logo.png");
+                    alert('店铺LOGO上传成功');
+                } else {
+                    alert(result.content);
+                }
+            }
+        });
+
+    </script>
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="title">
+        <div class="position">
+            <img src="/static/admin/images/position.png" alt=""/>
+            <a href="#">用户管理</a>
+            <img src="/static/admin/images/right.png" alt=""/>
+            <span>修改用户</span>
+        </div>
+        <div th:replace="~{admin/shared/common_message :: hope}"></div>
+    </div>
+    <div class="clear clearfix h10"></div>
+    <div id="main">
+        <div class="main">
+            <form action="edit.html" method="post">
+                <input type="hidden" id="uid" name="uid" value="44" th:value="${Model.uid}">
+                <div class="name">
+                    用户管理：(修改用户)
+                </div>
+                <p class="tips"></p>
+                <ul>
+                    <li class="w100">
+                        <label>用户名：</label>
+                        <input class="form-control text" data-val="true"
+                               data-val-required="用户名为必填项"
+                               data-val-length="用户名长度不能大于25"
+                               data-val-length-max="25" id="userName" name="userName" placeholder="请输入用户名" type="text"
+                               value="" style="width:250px;" th:value="${Model.userName}"/>
+                        <span class="field-validation-valid" data-valmsg-for="nickName"
+                              data-valmsg-replace="true"></span></li>
+                    <li class="w100">
+                        <label>邮箱：</label>
+                        <input class="form-control text" data-val="true" data-val-required="邮箱为必填项"
+                               data-val-email="必须输入正确格式的电子邮件" data-val-length="邮箱长度不能大于25"
+                               data-val-length-max="25" id="email" name="email" placeholder="请输入邮箱" type="text"
+                               value="" th:value="${Model.email}"/>
+                        <span class="field-validation-valid" data-valmsg-for="email"
+                              data-valmsg-replace="true"></span></li>
+
+                    <li class="w100">
+                        <label>手机：</label>
+                        <input class="form-control text" data-val="true" data-val-required="手机为必填项"
+                               data-val-length="手机长度不能大于11"
+                               data-val-length-max="11" id="mobile" data-val-number="手机必须是数字。" name="mobile"
+                               placeholder="请输入手机" type="text"
+                               value="" th:value="${Model.mobile}"/>
+                        <span class="field-validation-valid" data-valmsg-for="mobile"
+                              data-valmsg-replace="true"></span></li>
+                    <li class="w100">
+                        <label>用户分类：</label>
+                        <select class="btn btn-default" id="userRid" data-val="true" data-val-required="请选择用户分类"
+                                name="userRid" style="width: 150px;">
+                            <option selected="selected" value="-1">请选择</option>
+
+                            <option value="" th:value="${info.value}"  th:each="info : ${Model.userRankItemList}" th:text="${info.text}"></option>
+
+
+
+                        </select>
+
+                        <span class="field-validation-valid" data-valmsg-for="userRid"
+                              data-valmsg-replace="true"></span>
+                    </li>
+
+
+                    <li class="w100">
+                        <label>密码：</label>
+                        <input class="form-control text" data-val="true" data-val-length="密码长度小于6,大于25"
+                               data-val-length-max="25" data-val-lenth-min="6" id="password" name="password"
+                               placeholder="请填写用户密码" type="password"
+                               value=""/>
+                        <span class="field-validation-valid" data-valmsg-for="password"
+                              data-valmsg-replace="true"></span></li>
+
+
+                    <li class="w100">
+                        <label>昵称：</label>
+                        <input class="form-control text" data-val="true" data-val-length="昵称长度不能大于25"
+                               data-val-length-max="25" id="nickName" name="nickName" placeholder="请输入用户昵称" type="text"
+                               value="Self Struggle" style="width:250px;" th:value="${Model.nickName}"/>
+                        <span class="field-validation-valid" data-valmsg-for="nickName"
+                              data-valmsg-replace="true"></span></li>
+                    <li class="w100">
+                        <label>真实姓名：</label>
+                        <input class="form-control text" data-val="true" data-val-length="昵称长度不能大于10"
+                               data-val-length-max="25" id="realName" name="realName" placeholder="请输入用户真实姓名"
+                               type="text"
+                               value="" style="width:180px;" th:value="${Model.realName}"/>
+                        <span class="field-validation-valid" data-valmsg-for="realName"
+                              data-valmsg-replace="true"></span></li>
+                    <li class="w100">
+                        <label>所在区域：</label>
+                        <select class="btn btn-default" id="provinceSelect">
+                            <option value="-1">请选择</option>
+                        </select>
+                        <select class="citySelect btn btn-default" id="citySelect">
+                            <option selected="selected" value="-1">请选择</option>
+                        </select>
+                        <select class="countySelect btn btn-default" id="regionId" name="regionId">
+                            <option selected="selected" value="-1">请选择</option>
+                        </select>
+                    </li>
+
+                    <li class="w100">
+                        <label>联系地址：</label>
+                        <input class="form-control text" data-val="true" data-val-length="地址长度不能大于120"
+                               data-val-length-max="120" id="address" name="address" th:value="${Model.address}"
+                               placeholder="请输入地址" type="text" value="" style="width: 420px;"/>
+                        <span class="field-validation-valid" data-valmsg-for="address"
+                              data-valmsg-replace="true"></span>
+                    </li>
+
+                </ul>
+
+                <div class="describe">
+                    <label>用户详情：</label>
+
+                    <textarea class="form-control text" cols="20" data-val="true" data-val-length="用户长度不能大于500"
+                              data-val-length-max="500" id="bio" name="bio" placeholder="用户详情" rows="2"
+                              th:text="${Model.bio}"></textarea>
+
+
+                </div>
+                <div class="fastener">
+                    <button class="btn btn-success release" type="submit" role="button">确认提交</button>
+                    <button class="btn btn-danger release" type="reset" role="button">取消</button>
+                </div>
+                <div class="clear clearfix h10"></div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

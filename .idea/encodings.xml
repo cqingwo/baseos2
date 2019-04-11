@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Libraries/Core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Libraries/Data" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Libraries/Services" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Plugins/OAuth.MiniApp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Plugins/Pay.Wechat" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Presentation/Web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Presentation/Web.Admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Presentation/Web.Api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Presentation/Web.Framework" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.Config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.Email" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.Event" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.Log" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.Push" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.RDBS" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.Redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.SMS" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.UCenter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Strategies/Strategy.Upload" charset="UTF-8" />
+  </component>
+</project>

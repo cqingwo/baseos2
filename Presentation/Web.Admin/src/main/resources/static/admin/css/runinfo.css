@@ -1,0 +1,355 @@
+/*
+ *
+ *  * Copyright (C) 2017.
+ *  * 用于JAVA项目开发
+ *  * 重庆青沃科技有限公司 版权所有
+ *  * Copyright (C)  2017.  CqingWo Systems Incorporated. All rights reserved.
+ *
+ */
+
+@charset "utf-8";/* CSS Document */
+a:visitied{
+	text-decoration:none;
+	color:inherit;
+}
+a{
+	text-decoration:none;
+}
+.area1{
+	border-bottom:1px solid #26ade4;
+	width:100%;
+}
+h3{
+	font-size:14px;
+	color:#333;
+	
+}
+h3 a{
+	color:#2d86d2 !important;
+	font-size:14px;
+	display:inline-block;
+	margin-left:15px;
+}
+.entry{
+	
+	color:#666;
+	font-size:14px;
+}
+.entry a{
+	color:#2d86d2 !important;
+	font-size:14px;
+	display:inline-block;
+	margin-left:15px;
+}
+.icon-riqi{
+	margin-right:10px;
+}
+.area2{
+	border-bottom:1px solid #26ade4;
+	padding-left:30px;
+	margin-top:10px;
+}
+.list-inline li{
+	padding-top:10px;
+	width:95px;
+	height:95px;
+	text-align:center;
+}
+.list-inline li a{
+	font-size:14px;
+	color:#333;
+}
+.list-inline li a .icon{
+	font-size:35px;
+	display:block;
+}
+.addto{
+	display:block;
+	width:220px;
+	height:30px;
+	background-color:#717c89;
+	margin-top:10px;
+	border-radius:4px;
+	text-align:center;
+	line-height:30px;
+	color:#fff !important;
+	font-size:14px;
+	margin-bottom:20px;
+	transition:all .3s linear;
+}
+.addto:hover{
+	background-color:#3e4752;
+}
+.list-group{
+	border-bottom:1px solid #26ade4;
+	padding-left:30px;
+	margin-bottom:0;
+	padding-bottom:15px;
+}
+.list-group-item{
+	border:none;
+	font-size:14px;
+	color:#666;
+	padding:5px 0px;
+}
+.icon-4{
+	font-size:26px !important;
+	margin-right:8px;
+}
+.list-group-item a{
+	color:#fff;
+	margin-left:20px;
+	display:inline-block;
+	border-radius:4px;
+	background:#717c89;
+	padding:4px 27px;
+	font-size:12px;
+	transition:all .3s linear;
+}
+.list-group-item a:hover{
+	transition:all .2s;
+	background:#3e4752;
+}
+.icon-chaxun{
+	font-size:26px !important;
+	margin-right:8px;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus{
+	background:none;
+	color:#333;
+}
+.see{
+	display:block;
+	margin-left: 20px;
+	font-size:14px;
+	color:#666 !important;
+}
+.see:hover{
+	color:#333 !important;
+}
+.bottom{
+	border-bottom:none;
+}
+.icon-caretright{
+	font-size:20px !important;
+	color:#666;
+	margin-right:5px;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus{
+	border-left:none;
+}
+
+#main {
+	width: 1000px;
+	margin: 0 auto;
+	height:800px;
+}
+#main .main h3{
+	margin-top:-10px;
+	margin-bottom:8px;
+	font-size:14px;
+	color:#000;
+	text-align:center;
+}
+#main .main ul{
+	width:100%;
+	float:left;
+}
+#main .main ul .headquarters{
+	margin-left:47%;
+	text-align:center;
+}
+#main .main ul li span{
+	display:inline-block;
+	height:24px;
+	border-right:1px solid #000;
+}
+.icon-gongsi, .icon-gongsi1, .icon-gongsi2, .icon-xiaoshoubu{
+	font-size:60px !important;
+	color:#2A3442;
+}
+ .icon-zhiwei{
+	 font-size:50px !important;
+	color:#2A3442;
+}
+#main .main ul li{
+	float:left;
+}
+.ul{
+	height:152px;
+}
+#main .main ul .second{
+	position:relative;
+	text-align:center;
+	width:200px;
+	border-top:1px solid #000;
+}
+#main .main ul .second:first-child{
+	text-align:left;
+	margin-left:300px;
+}
+#main .main ul .second font{
+	display:block;
+	border-right:1px solid #000;
+	height:24px;
+}
+#main .main ul .second .mr{
+	margin-left:24px;
+}
+.font{
+	border-left:1px solid #000;
+	border-right:none !important;
+}
+.span{
+	border-left:1px solid #000;
+	border-right:none !important;
+	margin-right:25px;
+}
+#main .main ul .second:last-child{
+	text-align:right;
+}
+#main .main ul .second .right{
+	position:absolute;
+	right:-25px;
+}
+#main .main ul .second .left{
+	position:absolute;
+	left:-25px;
+}
+#main .main .leftbox{
+	width:350px;
+	height:152px;
+	margin-left:150px;
+}
+#main .main .leftbox li{
+	width:100px;
+	position:relative;
+	text-align:center;
+	border-top:1px solid #000;
+}
+#main .main .leftbox li .mr{
+	margin-left:24px;
+}
+#main .main .leftbox li font{
+	display:block;
+	border-right:1px solid #000;
+	height:24px;
+}
+#main .main .leftbox li .left{
+	position:absolute;
+	left:-25px;
+}
+#main .main .leftbox li .right{
+	position:absolute;
+	right:-25px;
+}
+.center{
+	margin-right:50px;
+}
+#main .main .leftbox li:first-child{
+	text-align:left;
+}
+#main .main .leftbox li:last-child{
+	text-align:right;
+}
+#main .main .rightbox{
+	width:350px;
+	height:152px;
+	margin-left:80px;
+}
+#main .main .rightbox li{
+	width:120px;
+	position:relative;
+	text-align:center;
+	border-top:1px solid #000;
+}
+#main .main .rightbox li .mr{
+	margin-left:24px;
+}
+#main .main .rightbox li font{
+	display:block;
+	border-right:1px solid #000;
+	height:24px;
+}
+#main .main .rightbox li .left{
+	position:absolute;
+	left:-25px;
+}
+#main .main .rightbox li .right{
+	position:absolute;
+	right:-25px;
+}
+#main .main .rightbox li:first-child{
+	text-align:left;
+}
+#main .main .rightbox li:last-child{
+	text-align:right;
+}
+#main .main .staff{
+	width:350px;
+	margin-left:150px;
+}
+#main .main .staff li{
+	position:relative;
+	width:100px;
+	text-align:center;
+}
+#main .main .staff li font{
+	display:block;
+	border-right:1px solid #000;
+	height:25px;
+}
+#main .main .staff .center{
+	margin-left:50px;
+}
+#main .main .staff li:first-child{
+	margin-left:-50px;
+}
+#main .main .staff li:last-child{
+	float:right;
+}
+#main .main .employee{
+	width:200px;
+	margin-left:40px;
+}
+#main .main .employee font{
+	display:block;
+	border-right:1px solid #000;
+	height:24px;
+}
+#main .main .employee li{
+	width: 40px;
+    position: relative;
+    text-align: center;
+    border-top: 1px solid #000;
+}
+#main .main .employee li:first-child div{
+	margin-left:-32px;
+}
+#main .main .employee li:last-child div{
+	margin-right:-40px;
+}
+.center1{
+	margin-right:50px;
+}
+#main .main .personnel{
+	width:100px;
+    float: right;
+    margin-right: 130px;
+}
+#main .main .personnel font{
+	display:block;
+	border-right:1px solid #000;
+	height:25px;
+	margin-left:49px;
+}
+#main .main .personnel li{
+	position:relative;
+}
+#main .main .personnel li div{
+	position:absolute;
+	left:28px;
+}
+
+
+

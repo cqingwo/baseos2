@@ -1,0 +1,154 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>英卡电子</title>
+    <meta name="author" content="Cqingwo-Liu"/>
+    <meta name="copyright" content="Copyright (c) 2011 Cqingwo All Rights Reserved."/>
+    <!-- struts -->
+    <link href="/static/admin/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/miluo.css"/>
+    <!-- 调用远程jquery -->
+    <script src="https://cdn.cqwo.com/js/jquery.min.js" type="text/javascript"></script>
+    <!-- 调用Bootstrap-->
+    <script src="https://cdn.cqwo.com/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--公共JS方法-->
+    <script src="https://cdn.cqwo.com/js/commom.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/static/admin/scripts/showlist.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.cqwo.com/js/html5shiv.min.js"></script>
+    <script src="https://cdn.cqwo.com/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+<div id="wrapper">
+    <div class="title">
+        <div class="position">
+            <img src="/static/admin/images/position.png" alt=""/>
+            <a href="#">用户管理</a>
+            <img src="/static/admin/images/right.png" alt=""/>
+            <span>我的用户列表</span>
+        </div>
+
+
+        <div class="hope">
+            欢迎您：<strong th:text="${WorkContext.nickName} "></strong>
+            <span>|</span>
+            今天是：<span id="show">2017月11日15 星期三</span>
+        </div>
+        <script type="text/javascript">
+            window.onload = function () {
+                var show = document.getElementById("show");
+                setInterval(function () {
+                    var time = new Date();
+                    // 程序计时的月从0开始取值后+1
+                    var m = time.getMonth() + 1;
+                    var t = time.getFullYear() + "-" + m + "-"
+                        + time.getDate() + " " + time.getHours() + ":"
+                        + time.getMinutes() + ":" + time.getSeconds();
+                    show.innerHTML = t;
+                }, 1000);
+            };
+        </script>
+    </div>
+
+    <form action="list" method="post">
+
+        <div id="contenr">
+            <div class="contenr">
+                <div class="hurf">
+                    <div class="input-group col-md-12">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td style="font-size: 12px;">用户UID：</td>
+                                <td width="170"><input class="form-control" data-val="true"
+                                                       data-val-number="字段 Uid 必须是一个数字。" data-val-required="Uid 字段是必需的。"
+                                                       id="Uid" name="Uid" placeholder="用户UID"
+                                                       style="font-size: 10px; height:28px;" type="text" value="0"/>
+                                </td>
+                                <td width="35">&nbsp;</td>
+                                <td style="font-size: 12px;">昵称：</td>
+                                <td width="170"><input class="form-control" id="nickName" name="nickName"
+                                                       placeholder="用户名" style="font-size: 10px; height:28px;"
+                                                       type="text" value=""/></td>
+
+                                <td width="35">&nbsp;</td>
+                                <td style="font-size: 12px;">手机：</td>
+                                <td width="170"><input class="form-control" id="mobile" name="mobile" placeholder="手机"
+                                                       style="font-size: 10px; height:28px;" type="text" value=""/></td>
+                                <td width="35">&nbsp;</td>
+                                <td>
+                                    <button class="searchBut submit" style="height: 28px; width: 70px; border: none"
+                                            type="submit" value="搜索">搜索
+                                    </button>
+                                </td>
+                                <a class="btn btn-default right" href="add.html"
+                                   style="font-size: 10px; height:28px;">添加用户</a>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="clear clearfix"></div>
+                <table width="98%" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th width="10" align="center"></th>
+                        <th width="40" align="center">
+                            <input type="checkbox" id="allSelect"/></th>
+                        <th width="120" align="left">编号</th>
+                        <th width="120" align="left">用户名</th>
+                        <th width="120" align="left">真实姓名</th>
+                        <th width="120" align="left">用户剩余金额</th>
+                        <th width="150" align="left">银行卡号</th>
+                        <th width="150" align="left">手机</th>
+                        <th width="150" align="left">邮箱</th>
+                        <th align="left">管理操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                    <tr th:each="info : ${Model.userInfoList}" >
+                        <td align="center"></td>
+                        <td align="center">
+                            <input type="checkbox"/></td>
+                        <td align="left" th:text="${info.uid}">44</td>
+                        <td align="left" th:text="${info.nickName}">Self Struggle</td>
+                        <td align="left" th:text="${info.realName}"></td>
+                        <td align="left" th:text="${info.money}">0.0</td>
+                        <td align="left"></td>
+                        <td align="left" th:text="${info.mobile}"></td>
+                        <td align="left" th:text="${info.email}"></td>
+                        <td align="left">
+                            <a class="btn btn-default right"
+                               th:href="'edit?uid='+${info.uid}"
+                               href="edit?uid=1"
+                                            style="font-size: 10px; height:28px;">编辑</a></td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+                <div class="clear clearfix"></div>
+                <div class="number">
+                    <ul id="dataPageList" class="pagination" th:utext="${Model.pageModel.toString()}">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+
+</html>

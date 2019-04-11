@@ -1,0 +1,126 @@
+/*
+ *
+ *  * Copyright (C) 2017.
+ *  * 用于JAVA项目开发
+ *  * 重庆青沃科技有限公司 版权所有
+ *  * Copyright (C)  2017.  CqingWo Systems Incorporated. All rights reserved.
+ *
+ */
+
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1496386381898'); /* IE9*/
+  src: url('iconfont.eot?t=1496386381898#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1496386381898') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1496386381898') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1496386381898#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-guanli:before { content: "\f0105"; }
+
+.icon-gongsi:before { content: "\343d"; }
+
+.icon-shezhi:before { content: "\f0003"; }
+
+.icon-1:before { content: "\e601"; }
+
+.icon-iconfontziliao:before { content: "\e610"; }
+
+.icon-tuichu:before { content: "\e67d"; }
+
+.icon-xiugai:before { content: "\e630"; }
+
+.icon-llalbumshopselectorcreate:before { content: "\34c1"; }
+
+.icon-shuju:before { content: "\f000b"; }
+
+.icon-iconfontcolor09:before { content: "\e795"; }
+
+.icon-you:before { content: "\e6da"; }
+
+.icon-4:before { content: "\e603"; }
+
+.icon-tongji:before { content: "\e74d"; }
+
+.icon-tongzhi:before { content: "\e621"; }
+
+.icon-fabu:before { content: "\e625"; }
+
+.icon-shanchu:before { content: "\e616"; }
+
+.icon-xiaoxi:before { content: "\e605"; }
+
+.icon-xitongshezhi:before { content: "\e7e0"; }
+
+.icon-riqi:before { content: "\e635"; }
+
+.icon-weizhi:before { content: "\e627"; }
+
+.icon-wanggexinxi05:before { content: "\e650"; }
+
+.icon-xinxiguanli:before { content: "\e8f3"; }
+
+.icon-gongzuotai:before { content: "\e859"; }
+
+.icon-gouwu:before { content: "\e604"; }
+
+.icon-geren:before { content: "\e607"; }
+
+.icon-m-summary:before { content: "\e6b5"; }
+
+.icon-right-circle-true:before { content: "\e6b4"; }
+
+.icon-crm35:before { content: "\e669"; }
+
+.icon-shouzhimingxi:before { content: "\e637"; }
+
+.icon-xiazai8:before { content: "\e63b"; }
+
+.icon-chaxun:before { content: "\e617"; }
+
+.icon-safe:before { content: "\e61f"; }
+
+.icon-bianjiqi:before { content: "\e62f"; }
+
+.icon-yuangong:before { content: "\e602"; }
+
+.icon-dayinji:before { content: "\e623"; }
+
+.icon-qita:before { content: "\e64b"; }
+
+.icon-xitongpeizhi:before { content: "\e629"; }
+
+.icon-caretright:before { content: "\e726"; }
+
+.icon-caretdown:before { content: "\e735"; }
+
+.icon-catalog:before { content: "\e716"; }
+
+.icon-guanli1:before { content: "\e611"; }
+
+.icon-guanli2:before { content: "\e68b"; }
+
+.icon-xiaoshoubu:before { content: "\e612"; }
+
+.icon-gongsi1:before { content: "\e518"; }
+
+.icon-gongsi2:before { content: "\e620"; }
+
+.icon-shangchuanwenjian:before { content: "\e61d"; }
+
+.icon-yingyelirun:before { content: "\e628"; }
+
+.icon-wenjianguanli:before { content: "\e66e"; }
+
+.icon-shouye:before { content: "\e501"; }
+
+.icon-zhiwei:before { content: "\e615"; }
+

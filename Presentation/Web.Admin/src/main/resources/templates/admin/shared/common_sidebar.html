@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<div class="left-main left-full" th:fragment="sidebar">
+    <div class="sidebar-fold"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+    <div class="subNavBox">
+        <div class="sBox">
+            <div class="subNav sublist-down"><span class="title-icon glyphicon glyphicon-chevron-down"></span><span
+                    class="sublist-title">用户管理</span></div>
+
+            <ul class="navContent" style="display: block">
+                <li class="active">
+                    <div class="showtitle" style="width: 100px; display: none;"><img
+                            src="/static/admin/home/images/leftimg.png">账号管理
+                    </div>
+                    <a href="../user/list.html" th:href="@{/admin/user/list.html}"
+                       shiro:hasAnyPermissions="admin:user:list,admin:user" target="main"><span
+                            class="sublist-icon glyphicon glyphicon-user"></span><span
+                            class="sub-title">账号管理</span></a></li>
+            </ul>
+        </div>
+        <div class="sBox">
+            <div class="subNav sublist-dwon"><span class="title-icon glyphicon glyphicon-chevron-up"></span><span
+                    class="sublist-title">报价管理</span></div>
+            <ul class="navContent" style="display: block">
+                <li>
+                    <div class="showtitle" style="width:100px;"><img src="/static/admin/home/images/leftimg.png"/>报价管理
+                    </div>
+                    <a href="#" th:href="@{/admin/quoting/alist.html}"
+                       shiro:hasAnyPermissions="admin:quoting:alist,admin:quoting" target="main"><span
+                            class="sublist-icon glyphicon glyphicon-leaf"></span><span
+                            class="sub-title">报价管理</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
