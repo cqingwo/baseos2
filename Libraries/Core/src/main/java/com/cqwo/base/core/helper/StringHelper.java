@@ -439,7 +439,7 @@ public class StringHelper {
                 mLinkedSet.add(strArray[i]);
                 sb.append(strArray[i] + " ");
             }
-        } //System.out.println(mLinkedSet);
+        }
         return sb.toString();
     }
 
@@ -742,11 +742,6 @@ public class StringHelper {
         return new String(password);
     }
 
-
-    @Test
-    public void Test2() { //System.out.println(getChineseSubString("你好,我", 66));
-
-    }
 
     /**
      * char数组转字符串

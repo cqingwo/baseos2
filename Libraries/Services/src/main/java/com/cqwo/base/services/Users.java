@@ -492,23 +492,12 @@ public class Users {
      * @param salt     散列盐值
      * @return
      */
-    public static String createUserPassword(String password, String salt) { //System.out.println("password:" + password); //System.out.println("salt:" + salt); //System.out.println("md5:" + SecureHelper.md5(password + salt));
+    public static String createUserPassword(String password, String salt) {
         return SecureHelper.md5(password + salt);
     }
 
-    public static void main(String[] args) { //System.out.println(createUserPassword("19870214", "fghkyu"));
+    public static void main(String[] args) {
     }
-
-//    /**
-////     * 创建用户Token
-////     *
-////     * @param openId openid
-////     * @param salt   散列盐值
-////     * @return
-////     */
-////    public static String createUserToken(String openId, String salt) {
-////        return SecureHelper.md5(openId + salt);
-////    }
 
 
     /**
@@ -579,58 +568,6 @@ public class Users {
         return new PartUserInfo();
     }
 
-//    /**
-//     * 创过token用户
-//     *
-//     * @param uid
-//     * @return
-//     */
-//    public static String creatUserToken(String uid, String openId) {
-//
-//        String token = null;
-//
-//        try {
-//
-//            UserTokenInfo userToken = new UserTokenInfo(uid, openId);
-//            String content = JSON.toJSONString(userToken);
-//            token = AESHelper.encode(content);
-//
-//        } catch (Exception ex) {
-//
-//            //logs.write("用户创建token失败");
-//
-//        }
-//
-//        return token;
-//    }
-
-//    /**
-//     * 用户解密
-//     *
-//     * @param token
-//     * @return
-//     */
-//    public static UserTokenInfo decryptUserToken(String token) {
-//
-//        UserTokenInfo tokenInfo = null;
-//
-//        if (StringHelper.IsNullOrWhiteSpace(token)) {
-//            return null;
-//        }
-//
-//        try {
-//            String postStr = AESHelper.decode(token);
-//            tokenInfo = JSON.parseObject(postStr, UserTokenInfo.class);
-//
-//        } catch (Exception ex) {
-//
-//            //logs.write(ex, "用户解密失败");
-//        }
-//
-//        return tokenInfo;
-//
-//    }
-
     /**
      * 安全处理用户信息
      *
@@ -680,79 +617,6 @@ public class Users {
         return false;
     }
 
-//    /**
-//     * /**
-//     * 用户第三方登录
-//     *
-//     * @param nickName 用户昵称
-//     * @param avatar   头像
-//     * @param gender   性别
-//     * @return
-//     */
-//    public PartUserInfo createOauthUserInfo(String server, String openId, String unionId, String nickName, String avatar, Integer gender) {
-//        PartUserInfo userInfo = new PartUserInfo();
-//
-//        Integer nowts = UnixTimeHelper.getUnixTimeStamp();
-//
-//        userInfo.setSalt(createSalt());
-//        userInfo.setPassword(createUserPassword(userInfo.getSalt(), userInfo.getSalt()));
-//        userInfo.setUserRid(userRanks.getLowestUserRank().getUserRid());
-//
-//
-//        userInfo.setNickName(nickName);
-//        userInfo.setAvatar(avatar);
-//
-//        userInfo.setRegionId(500107);
-//        userInfo.setUserName("");
-//        userInfo.setEmail("");
-//        userInfo.setPayCredits(0);
-//        userInfo.setRankCredits(0);
-//        userInfo.setVerifyEmail(0);
-//        userInfo.setVerifyMobile(0);
-//        userInfo.setLiftBanTime(0);
-//
-//        logs.write("用户注册");
-//
-//        try {
-//            userInfo = createPartUser(userInfo);
-//            logs.write("uid:" + userInfo.getUid());
-//
-//            if (userInfo.getUid() >= 1) {
-//
-//                OauthInfo oauthInfo = new OauthInfo(userInfo.getUid(), openId, unionId, server);
-//
-//                oauths.createOauth(oauthInfo);
-//
-//
-//                UserDetailInfo userDetailInfo = new UserDetailInfo();
-//
-//                userDetailInfo.setUid(userInfo.getUid());
-//                userDetailInfo.setGender(gender);
-//                userDetailInfo.setLastVisitTime(nowts);
-//                userDetailInfo.setLastVisitRgid(-1);
-//                userDetailInfo.setRegisterTime(nowts);
-//                userDetailInfo.setRegisterRgid(-1);
-//                userDetailInfo.setBirthday(nowts);
-//                userDetailInfo.setIdCard("");
-//                userDetailInfo.setBio("");
-//
-//
-//                logs.write("用户第三方登录注册:" + userDetailInfo.toString());
-//                createUserDetail(userDetailInfo);
-//
-//
-//                logs.write("用户第三方登录注册成功");
-//
-//                return userInfo;
-//            }
-//
-//        } catch (Exception e) {
-//            logs.write(e, "用户第三方登录注册失败");
-//        }
-//
-//        return null;
-//    }
-
 
     /**
      * 获取用户头像
@@ -768,7 +632,6 @@ public class Users {
 
             String s = users.getUserAvatar(uid);
 
-            //logs.write("s:" + s);
             if (StringHelper.isNotNullOrWhiteSpace(s)) {
                 avatar = s;
             }
@@ -925,37 +788,32 @@ public class Users {
      */
     public Specification<PartUserInfo> getPartUserListCondition(String uid, String nickName, String mobile) {
 
-        Specification<PartUserInfo> condition = new Specification<PartUserInfo>() {
-            @Override
-            public Predicate toPredicate(Root<PartUserInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+        return (Specification<PartUserInfo>) (root, query, cb) -> {
 
-                List<Predicate> list = new ArrayList<Predicate>();
+            List<Predicate> list = new ArrayList<Predicate>();
 
 
-                if (StringHelper.isNotNullOrWhiteSpace(uid)) {
-                    list.add(cb.equal(root.get("uid").as(Integer.class), uid));
-                }
-
-                if (StringHelper.isNotNullOrWhiteSpace(nickName)) {
-
-                    list.add(cb.like(root.get("nickName").as(String.class), "%" + nickName + "%"));
-                }
-
-                if (StringHelper.isNotNullOrWhiteSpace(mobile)) {
-                    list.add(cb.equal(root.get("mobile").as(String.class), mobile));
-                }
-
-
-                Predicate[] p = new Predicate[list.size()];
-
-                query.where(cb.and(list.toArray(p)));
-
-
-                return query.getGroupRestriction();
+            if (StringHelper.isNotNullOrWhiteSpace(uid)) {
+                list.add(cb.equal(root.get("uid").as(Integer.class), uid));
             }
-        };
 
-        return condition;
+            if (StringHelper.isNotNullOrWhiteSpace(nickName)) {
+
+                list.add(cb.like(root.get("nickName").as(String.class), "%" + nickName + "%"));
+            }
+
+            if (StringHelper.isNotNullOrWhiteSpace(mobile)) {
+                list.add(cb.equal(root.get("mobile").as(String.class), mobile));
+            }
+
+
+            Predicate[] p = new Predicate[list.size()];
+
+            query.where(cb.and(list.toArray(p)));
+
+
+            return query.getGroupRestriction();
+        };
     }
 
 

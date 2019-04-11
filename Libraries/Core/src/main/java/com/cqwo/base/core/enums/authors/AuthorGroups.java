@@ -10,8 +10,9 @@ import java.util.List;
 
 /**
  * 权限分组
+ *
+ * @author cqnews
  */
-
 @Getter
 @AllArgsConstructor
 public enum AuthorGroups {

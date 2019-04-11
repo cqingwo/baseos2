@@ -41,11 +41,6 @@ public class PageModel extends Pager {
     private int pageSize;//每页数
 
     /**
-     * 总项数
-     */
-    //private int totalCount;//总项数
-
-    /**
      * 总页数
      */
     private int totalPages;//总页数
@@ -89,11 +84,6 @@ public class PageModel extends Pager {
         } else {
             this.pageNumber=1;
         }
-
-//        if (totalCount > 0)
-//            this.totalCount=totalCount;
-//        else
-//            this.totalCount=0;
 
         pageIndex=this.pageNumber - 1;
 
@@ -221,13 +211,6 @@ public class PageModel extends Pager {
         this.pageSize=pageSize;
     }
 
-//    public int getTotalCount() {
-//        return totalCount;
-//    }
-//
-//    public void setTotalCount(int totalCount) {
-//        this.totalCount=totalCount;
-//    }
 
     public int getTotalPages() {
         return totalPages;

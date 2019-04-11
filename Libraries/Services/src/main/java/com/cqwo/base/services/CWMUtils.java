@@ -134,7 +134,6 @@ public class CWMUtils {
     public String decryptCookiePassword(String cookiePassword) {
         try {
 
-            //cookiePassword=WebHelper.urlDecode(cookiePassword);
 
             return aesDecrypt(cookiePassword).trim();
         } catch (Exception e) {
@@ -688,7 +687,6 @@ public class CWMUtils {
 
         } catch (Exception ex) {
 
-            //logs.write(ex, "用户解密失败");
         }
 
         return tokenInfo;
@@ -710,12 +708,11 @@ public class CWMUtils {
 
             AccessToken userToken = new AccessToken(uid, salt, creatTime);
             String content = JSON.toJSONString(userToken);
-            // System.out.println(content);
+
             token = AESHelper.encode(content);
 
-        } catch (Exception ex) {
+        } catch (Exception ignored) {
 
-            //logs.write("用户创建token失败");
 
         }
 

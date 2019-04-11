@@ -11,11 +11,11 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by cqnews on 2017/4/11.
+ * 用户-组关联表
+ *
+ * @author cqnews
+ * @date 2017/4/11
  */
-
-
-//用户-组关联表
 @Service(value = "AuthorSessionsData")
 public class AuthorSessions extends DataService {
 

@@ -6,6 +6,10 @@ import com.cqwo.base.core.helper.TypeHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author cqnews
+ */
+
 public enum BankAction {
 
 

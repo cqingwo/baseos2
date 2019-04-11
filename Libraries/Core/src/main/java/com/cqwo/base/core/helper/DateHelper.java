@@ -587,7 +587,6 @@ public class DateHelper {
                 objFormatter.applyPattern(strToPattern);
                 strDate = objFormatter.format(day);
             } catch (Exception e) {
-                // logger.error(e);
                 return strValue;
             }
             return strDate;
@@ -880,7 +879,7 @@ public class DateHelper {
 
         int[][] day = {{0, 30, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
                 {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
-        Integer year = calendar.get(Calendar.YEAR) + 1900;
+        int year = calendar.get(Calendar.YEAR) + 1900;
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             return day[1][month] + "";
         } else {

@@ -145,33 +145,6 @@ public class WechatMiniUtils {
     }
 
 
-//    /**
-//     * 生成二维码
-//     *
-//     * @param path  跳转路径
-//     * @param width 宽度
-//     * @return
-//     */
-//    public String createWxQrCode(Integer machId, String path, Integer width) {
-//
-//
-//        try {
-//
-//            File code2 = getQrcodeService().createQrcode(path, width);
-//
-//            if (code2 != null) {
-//                return uploads.saveMachineQcode(machId, code2);
-//            }
-//
-//        } catch (WxErrorException e) {
-//            logs.write(e, "生成二维码失败");
-//        }
-//
-//        return "";
-//
-//    }
-
-
     /**
      * 更新微信session
      *
@@ -180,7 +153,6 @@ public class WechatMiniUtils {
      */
     public WeChatSession updateSession(WxMaJscode2SessionResult result) {
 
-        //String sessionid = sessions.generateSid();
 
         String openId = result.getOpenid();
         String unionId = result.getUnionid();
@@ -277,24 +249,10 @@ public class WechatMiniUtils {
         try {
 
             return cwmWechat.getiMiniAppStrategy().getMsgService();
-        } catch (Exception ex) {
+        } catch (Exception ignored) {
 
         }
         return null;
     }
-
-//    public boolean sendMessage() {
-//
-//        WxMaTemplateMessage templateMessage = new WxMaTemplateMessage();
-//
-//
-//        try {
-//            getMsgService().sendTemplateMsg(templateMessage);
-//        } catch (WxErrorException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
-
 
 }

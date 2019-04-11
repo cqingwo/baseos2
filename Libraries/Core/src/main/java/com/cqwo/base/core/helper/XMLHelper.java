@@ -14,6 +14,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 封装了XML转换成object，object转换成XML的代码 
@@ -51,8 +52,8 @@ public class XMLHelper {
 
         //如果目标文件所在的文件夹不存在
         if (!file.getParentFile().exists()) {// 判断目标文件所在的目录是否存在
-            // 如果目标文件所在的文件夹不存在，则创建父文件夹 //System.out.println("目标文件所在目录不存在，准备创建它！");
-            if (!file.getParentFile().mkdirs()) {// 判断创建目录是否成功 //System.out.println("创建目标文件所在的目录失败！");
+            // 如果目标文件所在的文件夹不存在，则创建父文件夹
+            if (!file.getParentFile().mkdirs()) {// 判断创建目录是否成功
             }
         }
 
@@ -60,7 +61,7 @@ public class XMLHelper {
         if(!file.exists())
         {
             file.createNewFile();
-        } //System.out.println(obj);
+        }
         //创建文件输出流
         FileOutputStream fos = new FileOutputStream(file);
 
@@ -91,8 +92,8 @@ public class XMLHelper {
             // 将对象转换成输出流形式的xml  
             // 创建输出流
             OutputStreamWriter out = null;
-            try { //System.out.println(path);
-                out = new OutputStreamWriter(new FileOutputStream(path),"UTF-8");
+            try {
+                out = new OutputStreamWriter(new FileOutputStream(path), StandardCharsets.UTF_8);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -134,10 +135,8 @@ public class XMLHelper {
             InputStreamReader inputStream = null;
 
             try {
-                inputStream = new InputStreamReader(new FileInputStream(xmlPath),"UTF-8");
+                inputStream = new InputStreamReader(new FileInputStream(xmlPath), StandardCharsets.UTF_8);
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
             xmlObject = unmarshaller.unmarshal(inputStream);

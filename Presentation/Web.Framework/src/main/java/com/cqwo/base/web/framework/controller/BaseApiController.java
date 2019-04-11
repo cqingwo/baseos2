@@ -51,8 +51,6 @@ public class BaseApiController extends BaseController {
         this.workContext = new ApiWorkContext();
         this.session = request.getSession();
 
-//		this.accessToken = wechatUtils.getAccessToken();
-//		this.wechatConfigInfo = cwmConfig.getIconfigstrategy().getWechatConfig();
 
         /**
          * 获取当前URL
@@ -96,7 +94,7 @@ public class BaseApiController extends BaseController {
 
         } catch (Exception ex) {
 
-            logs.write(ex, "上午文处理报错"); //System.out.println("上下文处理报错:" + ex.toString());
+            logs.write(ex, "上午文处理报错");
 
             throw new CWMException("异常退出");
         }

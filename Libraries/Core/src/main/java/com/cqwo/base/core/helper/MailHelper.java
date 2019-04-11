@@ -40,7 +40,6 @@ public class MailHelper {
         Properties props = System.getProperties();
         props.setProperty(KEY_SMTP, VALUE_SMTP);
         props.put(KEY_PROPS, "true");
-        //props.put("mail.smtp.auth", "true");
         s = Session.getDefaultInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -78,7 +77,7 @@ public class MailHelper {
             transport.connect(VALUE_SMTP, sendUname, sendPwd);
             // 发送
             transport.sendMessage(message, message.getAllRecipients());
-            transport.close(); //System.out.println("send success!");
+            transport.close();
         } catch (AddressException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

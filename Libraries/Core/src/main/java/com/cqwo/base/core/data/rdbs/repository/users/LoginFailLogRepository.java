@@ -6,10 +6,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+
 public interface LoginFailLogRepository extends BaseRepository<LoginFailLogInfo, Integer> {
 
-    @Query("DELETE FROM LoginFailLogInfo where loginIP=?1")
     @Modifying
-    @Transactional
+    @Transactional(rollbackFor = IOException.class)
+    @Query("DELETE FROM LoginFailLogInfo where loginIP=?1")
     void deleteLoginFailLogByIP(Integer ip);
 }

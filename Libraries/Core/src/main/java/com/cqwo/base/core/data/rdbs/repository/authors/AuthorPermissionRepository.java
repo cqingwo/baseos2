@@ -6,6 +6,9 @@ import com.cqwo.base.core.domain.authors.AuthorPermissionInfo;
 
 import java.util.List;
 
+/**
+ * @author cqnews
+ */
 public interface AuthorPermissionRepository extends BaseRepository<AuthorPermissionInfo, Integer> {
 
     List<AuthorPermissionInfo> findAllByRoleId(Integer roleId);

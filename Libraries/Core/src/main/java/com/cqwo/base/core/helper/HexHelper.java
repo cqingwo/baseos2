@@ -144,7 +144,6 @@ public class HexHelper {
 
         Integer n = 4 - s.length() % 4;
 
-        //System.out.println(n);
 
         if (n >= 1) {
 
@@ -211,13 +210,13 @@ public class HexHelper {
 
         try {
             //十进制 -> 十六进制
-            String str = Integer.toHexString(s);
+            StringBuilder str = new StringBuilder(Integer.toHexString(s));
 
             while (str.length() < length) {
-                str = 0 + str;
+                str.insert(0, 0);
             }
 
-            return str;
+            return str.toString();
 
         } catch (Exception ex) {
             return "";
@@ -450,7 +449,7 @@ public class HexHelper {
      */
     public static String binaryReverse(String hexStr, Integer length) {
 
-        Integer i = binaryToDecimalism(hexStr); //System.out.println(i);
+        Integer i = binaryToDecimalism(hexStr);
 
         Integer value = reverse(i);
 

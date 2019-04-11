@@ -22,6 +22,9 @@ import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
+/**
+ * @author cqnews
+ */
 public class AESHelper {
 
     private static final String ALGORITHM_STR = "AES/ECB/PKCS5Padding";
@@ -230,15 +233,11 @@ public class AESHelper {
 
 
         String pStr = encode(content);
-        // System.out.println("加密前：" + content);
-        // System.out.println("加密后:" + pStr);
 
         String postStr = decode(pStr);
-        // System.out.println("解密后：" + postStr);
 
         UserTokenInfo userToken1 = JSON.parseObject(postStr, UserTokenInfo.class);
 
-        // System.out.println("还原token:" + userToken1.toString());
     }
 
     //

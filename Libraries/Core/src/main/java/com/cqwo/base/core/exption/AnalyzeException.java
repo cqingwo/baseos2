@@ -1,5 +1,8 @@
 package com.cqwo.base.core.exption;
 
+/**
+ * @author cqnews
+ */
 public class AnalyzeException extends CWMException {
 
 

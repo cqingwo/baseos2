@@ -360,7 +360,7 @@ public class ValidateHelper {
     public static boolean isValidMobile(String mobile) {
 
         boolean flag = false;
-        // Pattern p = Pattern.compile("^(1[358][13567890])(\\d{8})$");
+
         Pattern p = Pattern
                 .compile(MOBILE_REGEX);
         Matcher match = p.matcher(mobile);
@@ -754,8 +754,6 @@ public class ValidateHelper {
         while (m.find()) {
 
             int n = m.groupCount();
-
-            //System.out.println(n);
 
             for (int i = 0; i <= n; i++) {
                 list.add(m.group(i));

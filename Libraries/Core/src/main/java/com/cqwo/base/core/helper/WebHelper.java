@@ -294,7 +294,7 @@ public class WebHelper {
      *
      * @return
      */
-    public static String getIP(HttpServletRequest request) { //System.out.println(request.getRemoteAddr());
+    public static String getIP(HttpServletRequest request) {
 
         String remoteAddr = request.getRemoteAddr();
         String forwarded = request.getHeader("X-Forwarded-For");
@@ -879,14 +879,7 @@ public class WebHelper {
     public void test2() {
 
         String s = "http://localhost:8888/";
-//        WebClient webClient = WebClient.builder()
-//                .baseUrl(s)
-//                .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/vnd.github.v3+json")
-//                .defaultHeader(HttpHeaders.USER_AGENT, "Spring 5 WebClient")
-//                .build();
-//
-//        webClient.get(); //System.out.println("s:" + s);
-        s = disposeUrl(s); //System.out.println("s:" + s);
+
     }
 
     //endregion

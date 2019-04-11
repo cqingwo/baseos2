@@ -13,10 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by cqnews on 2017/4/11.
+ * 管理员日志
+ *
+ * @author cqnews
+ * @date 2017/4/11
  */
-
-//管理员日志
 @Service(value = "AuthorLogs")
 public class AuthorLogs {
 
@@ -124,15 +125,15 @@ public class AuthorLogs {
      **/
     public List<AuthorLogInfo> getAuthorLogList(Specification<AuthorLogInfo> condition, Sort sort) {
 
-        List<AuthorLogInfo> AuthorLogList = new ArrayList<AuthorLogInfo>();
+        List<AuthorLogInfo> authorLogInfoList = new ArrayList<AuthorLogInfo>();
 
         try {
-            AuthorLogList = authorLogs.getAuthorLogList(condition, sort);
+            authorLogInfoList = authorLogs.getAuthorLogList(condition, sort);
         } catch (Exception e) {
             logs.write(e, "获得管理员日志数据列表异常");
         }
 
-        return AuthorLogList;
+        return authorLogInfoList;
     }
 
 
@@ -147,15 +148,15 @@ public class AuthorLogs {
      **/
     public Page<AuthorLogInfo> getAuthorLogList(Integer pageSize, Integer pageNumber, Specification<AuthorLogInfo> condition, Sort sort) {
 
-        Page<AuthorLogInfo> AuthorLogList = null;
+        Page<AuthorLogInfo> infoPage = null;
 
         try {
-            AuthorLogList = authorLogs.getAuthorLogList(pageSize, pageNumber, condition, sort);
+            infoPage = authorLogs.getAuthorLogList(pageSize, pageNumber, condition, sort);
         } catch (Exception e) {
             logs.write(e, "获得管理员日志数据列表异常");
         }
 
-        return AuthorLogList;
+        return infoPage;
     }
 
 

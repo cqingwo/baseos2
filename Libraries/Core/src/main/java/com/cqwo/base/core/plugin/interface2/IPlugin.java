@@ -18,21 +18,6 @@ import javax.annotation.PostConstruct;
  */
 public interface IPlugin {
 
-//
-//    /**
-//     * 插件配置控制器
-//     *
-//     * @return
-//     */
-//    private String configController;
-//
-//    /**
-//     * 插件配置动作方法
-//     *
-//     * @return
-//     */
-//    private String configAction;
-
     /**
      * 获取配置文档
      *

@@ -8,7 +8,11 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//用户分组表
+/**
+ * 用户分组表
+ *
+ * @author cqnews
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

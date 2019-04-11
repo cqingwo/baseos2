@@ -7,6 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+/**
+ * @author cqnews
+ */
 public interface AuthorActionRepository extends BaseRepository<AuthorActionInfo, Integer> {
 
     /**
@@ -14,7 +17,6 @@ public interface AuthorActionRepository extends BaseRepository<AuthorActionInfo,
      *
      * @param roleId 角色id
      */
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
     @Query("SELECT action FROM AuthorActionInfo action where exists (SELECT 1 FROM AuthorPermissionInfo authorpermission where action.aid = authorpermission.aid and authorpermission.roleId = ?1)")
     List<AuthorActionInfo> getRoleAuthorActionList(Integer roleId);
 

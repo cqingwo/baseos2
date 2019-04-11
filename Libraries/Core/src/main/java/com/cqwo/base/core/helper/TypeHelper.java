@@ -345,9 +345,9 @@ public class TypeHelper {
     public void test() {
 
         String s = stringToInt("02552").toString();
-        // System.out.println(s);
 
-        Timestamp ts = stringToTimestamp("2020-12-30 00:00:00"); //System.out.println(ts);
+
+        Timestamp ts = stringToTimestamp("2020-12-30 00:00:00");
 
     }
 

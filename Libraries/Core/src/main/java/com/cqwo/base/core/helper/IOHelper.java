@@ -42,17 +42,14 @@ public class IOHelper {
      * @return
      */
     public static String getMapPath(String path) {
-        //file:/D:/JavaWeb/.metadata/.me_tcat/webapps/TestBeanUtils/WEB-INF/classes/
-
 
         String filepath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("")).getPath();
 
-//        filepath = filepath.replace('/', '\\'); // 将/换成\
+
         filepath = filepath.replace("file:", ""); //去掉file:
         filepath = filepath.replace("/classes", ""); //去掉class\
         filepath = filepath.replace("%20", " ");
-//        filepath = filepath.substring(1); //去掉第一个\,如 \D:\JavaWeb...
-        //System.out.println(path);
+
         return filepath + path;
     }
 

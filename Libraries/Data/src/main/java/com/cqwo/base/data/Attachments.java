@@ -10,11 +10,11 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by cqnews on 2017/4/11.
+ * 附件表
+ *
+ * @author cqnews
+ * @date 2017/4/11
  */
-
-
-//附件表
 @Service(value = "AttachmentsData")
 public class Attachments extends DataService {
 
@@ -40,7 +40,6 @@ public class Attachments extends DataService {
     public AttachmentInfo createAttachment(AttachmentInfo attachmentInfo) throws IOException {
         return getCwmData().getIBaseStrategy().createAttachment(attachmentInfo);
     }
-
 
 
     /**

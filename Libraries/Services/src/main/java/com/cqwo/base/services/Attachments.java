@@ -15,10 +15,11 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Created by cqnews on 2017/4/11.
+ * 附件表
+ *
+ * @author cqnews
+ * @date 2017/4/11
  */
-
-//附件表
 @Service(value = "Attachments")
 public class Attachments {
 
@@ -114,7 +115,6 @@ public class Attachments {
         return attachmentInfoList;
 
     }
-
 
 
     /**

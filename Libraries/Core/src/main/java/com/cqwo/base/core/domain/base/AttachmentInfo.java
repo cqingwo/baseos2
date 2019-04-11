@@ -8,7 +8,9 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//附件表
+/**
+ * @author cqnews
+ */ //附件表
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +19,7 @@ import java.io.Serializable;
 public class AttachmentInfo implements Serializable {
 
 
+    private static final long serialVersionUID = 2641109345239370432L;
     /**
      * 附件id
      **/

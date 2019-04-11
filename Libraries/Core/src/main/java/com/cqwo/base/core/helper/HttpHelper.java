@@ -42,12 +42,12 @@ import java.util.*;
  */
 public class HttpHelper {
 
-    private Logger logger=LoggerFactory.getLogger(HttpHelper.class);    //日志记录
+    private Logger logger = LoggerFactory.getLogger(HttpHelper.class);    //日志记录
 
 
-    private Regex detectiphoneregex =new Regex("iphone|Mac");
+    private Regex detectiphoneregex = new Regex("iphone|Mac");
 
-    private Regex detectwechatregex =new Regex("MicroMessenger|micromessenger");
+    private Regex detectwechatregex = new Regex("MicroMessenger|micromessenger");
 
     public HttpHelper() {
 
@@ -62,7 +62,7 @@ public class HttpHelper {
      * @return
      */
     public static String doGet(String url) {
-        return doGet(url, new HashMap<String, Object>());
+        return doGet(url, new HashMap<String, Object>(0));
     }
 
 
@@ -75,9 +75,9 @@ public class HttpHelper {
      */
     public static String doGet(String url, Map<String, Object> params) {
 
-        String apiUrl=url;
-        StringBuffer param=new StringBuffer();
-        Integer i=0;
+        String apiUrl = url;
+        StringBuffer param = new StringBuffer();
+        Integer i = 0;
         if (params != null && params.size() >= 1) {
 
             Set<String> arr = params.keySet();
@@ -90,15 +90,15 @@ public class HttpHelper {
                 param.append(key).append("=").append(params.get(key));
                 i++;
             }
-            apiUrl+=param;
+            apiUrl += param;
         }
-        String result=null;
+        String result = null;
 
-        CloseableHttpClient httpClient=HttpClients.createDefault();
+        CloseableHttpClient httpClient = HttpClients.createDefault();
 
         try {
 
-            HttpGet httpGet=new HttpGet(apiUrl);
+            HttpGet httpGet = new HttpGet(apiUrl);
 
             httpGet.setHeader("Accept", "Accept text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
             httpGet.setHeader("Accept-Charset", "GB2312,utf-8;q=0.7,*;q=0.7");
@@ -106,17 +106,11 @@ public class HttpHelper {
             httpGet.setHeader("Connection", "keep-alive");
             httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2");
 
-            CloseableHttpResponse response=httpClient.execute(httpGet);
-            HttpEntity entity=response.getEntity();
-
-           // //System.out.println("Login form get: " + response.getStatusLine());
-
-            //System.out.println("Initial set of cookies:");
-
+            CloseableHttpResponse response = httpClient.execute(httpGet);
+            HttpEntity entity = response.getEntity();
 
             //输出网页源码
-            result=EntityUtils.toString(response.getEntity(), "utf-8");
-            //System.out.println(result);
+            result = EntityUtils.toString(response.getEntity(), "utf-8");
 
 
         } catch (IOException e) {
@@ -141,7 +135,7 @@ public class HttpHelper {
      * @return
      */
     public static String doPost(String apiUrl) {
-        return doPost(apiUrl, new HashMap<String, Object>());
+        return doPost(apiUrl, new HashMap<String, Object>(0));
     }
 
     /**
@@ -152,9 +146,9 @@ public class HttpHelper {
      * @return
      */
     public static String doPost(String url, Map<String, Object> params) {
-        String apiUrl=url;
-        StringBuffer param=new StringBuffer();
-        Integer i=0;
+        String apiUrl = url;
+        StringBuffer param = new StringBuffer();
+        Integer i = 0;
         if (params != null && params.size() >= 1) {
 
             Set<String> arr = params.keySet();
@@ -167,15 +161,15 @@ public class HttpHelper {
                 param.append(key).append("=").append(params.get(key));
                 i++;
             }
-            apiUrl+=param;
+            apiUrl += param;
         }
-        String result=null;
+        String result = null;
 
-        CloseableHttpClient httpClient=HttpClients.createDefault();
+        CloseableHttpClient httpClient = HttpClients.createDefault();
 
         try {
 
-            HttpPost httpPost=new HttpPost(apiUrl);
+            HttpPost httpPost = new HttpPost(apiUrl);
 
             httpPost.setHeader("Accept", "Accept text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
             httpPost.setHeader("Accept-Charset", "GB2312,utf-8;q=0.7,*;q=0.7");
@@ -183,12 +177,11 @@ public class HttpHelper {
             httpPost.setHeader("Connection", "keep-alive");
             httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2");
 
-            CloseableHttpResponse response=httpClient.execute(httpPost);
-            HttpEntity entity=response.getEntity(); //System.out.println("Login form get: " + response.getStatusLine()); //System.out.println("Initial set of cookies:");
-
+            CloseableHttpResponse response = httpClient.execute(httpPost);
+            HttpEntity entity = response.getEntity();
 
             //输出网页源码
-            result=EntityUtils.toString(response.getEntity(), "utf-8"); //System.out.println(result);
+            result = EntityUtils.toString(response.getEntity(), "utf-8");
 
 
         } catch (IOException e) {
@@ -214,13 +207,13 @@ public class HttpHelper {
      */
     public static String doPost(String url, JSONObject json) {
 
-        String result=null;
+        String result = null;
 
-        CloseableHttpClient httpClient=HttpClients.createDefault();
+        CloseableHttpClient httpClient = HttpClients.createDefault();
 
         try {
 
-            HttpPost httpPost=new HttpPost(url);
+            HttpPost httpPost = new HttpPost(url);
 
             httpPost.setHeader("Accept", "Accept text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
             httpPost.setHeader("Accept-Charset", "GB2312,utf-8;q=0.7,*;q=0.7");
@@ -228,19 +221,16 @@ public class HttpHelper {
             httpPost.setHeader("Connection", "keep-alive");
             httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2");
 
-            StringEntity stringEntity=new StringEntity(json.toString(), "UTF-8");//解决中文乱码问题
+            StringEntity stringEntity = new StringEntity(json.toString(), "UTF-8");//解决中文乱码问题
             stringEntity.setContentEncoding("UTF-8");
             stringEntity.setContentType("application/json");
             httpPost.setEntity(stringEntity);
 
-            CloseableHttpResponse response=httpClient.execute(httpPost);
-            HttpEntity entity=response.getEntity(); //System.out.println("Login form get: " + response.getStatusLine()); //System.out.println("Initial set of cookies:");
-
+            CloseableHttpResponse response = httpClient.execute(httpPost);
+            HttpEntity entity = response.getEntity();
 
             //输出网页源码
-            result=EntityUtils.toString(response.getEntity(), "utf-8"); //System.out.println(result);
-
-
+            result = EntityUtils.toString(response.getEntity(), "utf-8");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -267,7 +257,7 @@ public class HttpHelper {
      * @return
      */
     public static String doPostSSL(String url) {
-        return doPostSSL(url, new HashMap<String, Object>());
+        return doPostSSL(url, new HashMap<String, Object>(0));
     }
 
     /**
@@ -279,14 +269,14 @@ public class HttpHelper {
      */
     public static String doPostSSL(String url, Map<String, Object> params) {
 
-        String result=null;
+        String result = null;
 
-        CloseableHttpClient httpClient=HttpClients.createDefault();
+        CloseableHttpClient httpClient = HttpClients.createDefault();
 
 
         try {
 
-            HttpPost httpPost=new HttpPost(url);
+            HttpPost httpPost = new HttpPost(url);
 
             httpPost.setHeader("Accept", "Accept text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
             httpPost.setHeader("Accept-Charset", "GB2312,utf-8;q=0.7,*;q=0.7");
@@ -294,22 +284,22 @@ public class HttpHelper {
             httpPost.setHeader("Connection", "keep-alive");
             httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2");
 
-            List<NameValuePair> pairList=new ArrayList<NameValuePair>(params.size());
+            List<NameValuePair> pairList = new ArrayList<NameValuePair>(params.size());
             Set<Map.Entry<String, Object>> arr = params.entrySet();
             for (Map.Entry<String, Object> entry : arr) {
-                NameValuePair pair=new BasicNameValuePair(entry.getKey(), entry.getValue().toString());
+                NameValuePair pair = new BasicNameValuePair(entry.getKey(), entry.getValue().toString());
                 pairList.add(pair);
             }
 
             httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName("utf-8")));
 
-            CloseableHttpResponse response=httpClient.execute(httpPost);
-            HttpEntity entity=response.getEntity();
+            CloseableHttpResponse response = httpClient.execute(httpPost);
+            HttpEntity entity = response.getEntity();
 
             //输出网页源码
-            result=EntityUtils.toString(response.getEntity(), "utf-8"); //System.out.println(result);
+            result = EntityUtils.toString(response.getEntity(), "utf-8");
 
-            Integer statusCode=response.getStatusLine().getStatusCode();
+            int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode != HttpStatus.SC_OK) {
                 return null;
             }
@@ -336,12 +326,13 @@ public class HttpHelper {
 
     /**
      * 发送POST请求
-     * @param url 地址
+     *
+     * @param url       地址
      * @param paramName 参数名
-     * @param param 参数
+     * @param param     参数
      * @return
      */
-    public static String jsonPost(String url,String paramName,String param){
+    public static String jsonPost(String url, String paramName, String param) {
         MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
         entityBuilder.setCharset(Charsets.UTF_8);
         entityBuilder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
@@ -366,7 +357,7 @@ public class HttpHelper {
         } finally {
             HttpClientUtils.closeQuietly(httpclient);
             HttpClientUtils.closeQuietly(response);
-// //System.out.println(result);
+
         }
         return result;
     }

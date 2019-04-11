@@ -16,7 +16,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
- * Created by cqnews on 2017/12/23.
+ *
+ * @author cqnews
+ * @date 2017/12/23
  */
 public class AccountLoginModel {
 

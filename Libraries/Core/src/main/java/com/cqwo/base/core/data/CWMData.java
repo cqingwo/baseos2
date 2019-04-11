@@ -10,6 +10,7 @@
 package com.cqwo.base.core.data;
 
 
+import com.cqwo.base.core.data.rdbs.IBaseStrategy;
 import com.cqwo.base.core.data.rdbs.IUserStrategy;
 import com.cqwo.base.core.data.rdbs.IAuthorStrategy;
 import com.cqwo.base.core.data.rdbs.ILog2Strategy;
@@ -36,6 +37,6 @@ public class CWMData {
     ILog2Strategy iLog2Strategy;
 
     @Autowired(required = false)
-    com.cqwo.base.core.data.rdbs.IBaseStrategy IBaseStrategy;
+    IBaseStrategy iBaseStrategy;
 
 }

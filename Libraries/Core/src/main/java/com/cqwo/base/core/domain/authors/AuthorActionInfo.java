@@ -9,7 +9,11 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//用户动作表
+/**
+ * 用户动作表
+ *
+ * @author cqnews
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -60,7 +64,6 @@ public class AuthorActionInfo implements Serializable {
     @Column(name = "title", nullable = false)
     @ColumnDefault(value = "''")
     private String title = "";
-
 
 
 }

@@ -62,7 +62,7 @@ public class PromptModel {
      * @param backUrl 返回地址
      */
     public PromptModel(String message, String backUrl) {
-        this.backUrl = backUrl; //System.out.println("backUrl:" + WebHelper.urlDecode(this.backUrl));
+        this.backUrl = backUrl;
         this.message = message;
     }
 

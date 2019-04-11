@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 账户关信息
+ * @author cqnews
  */
 @Controller(value = "AccountController")
 public class AccountController extends BaseWebController {

@@ -67,41 +67,6 @@ public class ShiroConfig {
         return modularRealmAuthenticator;
     }
 
-
-    //    public ShiroFilterChainDefinition shiroFilterChainDefinition() {
-//
-//        DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
-//
-//
-//        chainDefinition.addPathDefinition("/api/author/**", "anon");
-//
-//
-//        chainDefinition.addPathDefinition("/api/**", "anon");
-//
-//        // logged in users with the 'admin' role
-//        chainDefinition.addPathDefinition("/admin/**", "authc, roles[admin]"); //, roles[admin]
-//
-//        // logged in users with the 'document:read' permission
-//        chainDefinition.addPathDefinition("/docs/**", "authc, perms[document:read]");
-//
-//        chainDefinition.addPathDefinition("/static/**", "anon"); //匿名访问静态资源
-//
-//        chainDefinition.addPathDefinition("/components/**", "anon"); //匿名访问静态资源
-//
-//
-//        chainDefinition.addPathDefinition("/tool/**", "anon"); //匿名访问静态资源
-//
-//        chainDefinition.addPathDefinition("/logout", "logout");
-//
-//        // all other paths require a logged in user
-//        chainDefinition.addPathDefinition("/**", "anon");
-//
-//
-//        chainDefinition.getFilterChainMap();
-//
-//        return chainDefinition;
-//    }
-//
     @Bean
     public AccessControlFilter myAccessControlFilter() {
 
@@ -110,8 +75,7 @@ public class ShiroConfig {
 
 
     @Bean
-    public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) { //System.out.println("ShiroConfiguration.shirFilter()");
-
+    public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
         // 必须设置 SecurityManager
@@ -159,11 +123,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/*.txt", "anon");
 
         filterChainDefinitionMap.put("/api/tttechdata/**", "anon");
-//        filterChainDefinitionMap.put("/api/**/list", "anon");
-//        filterChainDefinitionMap.put("/api/tool/**", "anon");
-//        filterChainDefinitionMap.put("/api/**/catelist", "anon");
 
-//        filterChainDefinitionMap.put("/wechat/**", "anon");
         filterChainDefinitionMap.put("/wechat/account/**", "anon");
 
         filterChainDefinitionMap.put("/wechat/doProcess", "anon");
@@ -177,9 +137,6 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/api/index", "anon");
         filterChainDefinitionMap.put("/api/**", "apiAccessControlFilter");
 
-
-//        // logged in users with the 'admin' role
-//        filterChainDefinitionMap.put("/admin/**", "authc, roles[admin]"); //, roles[admin]
 
         // logged in users with the 'document:read' permission
         filterChainDefinitionMap.put("/docs/**", "authc, perms[document:read]");
@@ -225,26 +182,6 @@ public class ShiroConfig {
     public ShiroDialect shiroDialect() {
         return new ShiroDialect();
     }
-
-
-//    @Bean
-//    public Realm realm() {
-//
-//        APIRealm apiRealm = new APIRealm();
-//        apiRealm.setCachingEnabled(true);
-//
-//        return apiRealm;
-//    }
-
-//    @Override
-//    protected ShiroFilterFactoryBean shiroFilterFactoryBean() {
-//        ShiroFilterFactoryBean factoryBean = super.shiroFilterFactoryBean();
-////        Map<String, Filter> filterMap = new LinkedHashMap<>();
-////        //添加自定义的Filter,这里我随便new了一个filter
-////        filterMap.put("anyrole", new MyAccessControlFilter());
-////        factoryBean.setFilters(filterMap);
-//        return factoryBean;
-//    }
 
 
     @Bean

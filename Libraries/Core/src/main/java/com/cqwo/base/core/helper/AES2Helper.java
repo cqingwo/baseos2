@@ -20,23 +20,20 @@ import java.security.MessageDigest;
 import java.security.SecureRandom;
 
 /**
- * Created by cqnews on 2017/12/13.
+ *
+ * @author cqnews
+ * @date 2017/12/13
  */
 public class AES2Helper {
 
     public static void main(String[] args) throws Exception {
 
         String content = "我爱你";
-        //System.out.println("加密前：" + content);
-
         String key = "123456";
-        //System.out.println("加密密钥和解密密钥：" + key);
 
         String encrypt = aesEncrypt(content, key);
-        //System.out.println("加密后：" + encrypt);
 
         String decrypt = aesDecrypt(encrypt, key);
-        //System.out.println("解密后：" + decrypt);
     }
 
     /**

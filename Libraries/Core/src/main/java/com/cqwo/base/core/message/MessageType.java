@@ -13,6 +13,9 @@ package com.cqwo.base.core.message;
 
 public enum MessageType {
 
+    /**
+     * 消息类型
+     */
     Error("错误抛弃", 0), Heart("心跳", 1), UpdateMachineInfo("更新游戏配置", 2), UpdateGameList("更新游戏列表", 3), Recharge("充值", 4), Coin("投币", 5), Respond("消息回调", 6), Message("消息", 7), Command("Liunx命令", 8);
 
     // 成员变量

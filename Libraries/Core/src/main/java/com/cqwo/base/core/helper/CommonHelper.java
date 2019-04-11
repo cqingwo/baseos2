@@ -17,6 +17,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 
@@ -144,27 +145,22 @@ public class CommonHelper {
             System.getProperties().put("proxyHost", "10.55.4.1");
             //指定代理监听的端口        
             System.getProperties().put("proxyPort", "8080");
-            //long begintime = System.currentTimeMillis();
+
             URL url = new URL("http://api.map.baidu.com/telematics/v3/weather?location=%E9%87%8D%E5%BA%86&output=json&ak=VORWXzBy9c3BHcYp6YMYVijm");
 
             urlcon = (HttpURLConnection) url.openConnection();
-            //urlcon.set
+
             urlcon.setConnectTimeout(10000);
             urlcon.setReadTimeout(10000);
-            reader = new BufferedReader(new InputStreamReader(urlcon.getInputStream(), "UTF-8"));
+            reader = new BufferedReader(new InputStreamReader(urlcon.getInputStream(), StandardCharsets.UTF_8));
             StringBuilder sb = new StringBuilder();
             String s;
             while ((s = reader.readLine()) != null) {
                 sb.append(s);
             }
             ret = sb.toString();
-            //System.out.println("总共执行时间为："+(System.currentTimeMillis()-begintime)+"毫秒");
-            //ret=sb.toString();
 
-        } catch (MalformedURLException e) {
-            // TODO Auto-generated catch block
-            ret = "-1";
-            e.printStackTrace();
+
         } catch (IOException e) {
             // TODO Auto-generated catch block
             ret = "-1";
@@ -186,19 +182,6 @@ public class CommonHelper {
     }
 
 
-//    /**
-//     * 将ip地址转换成long类型
-//     *
-//     * @param ip
-//     * @return
-//     */
-//    public static Long convertIPToLong(String ip) {
-//        String[] ips=ip.split(".");
-//
-//        Long number=16777216L * Long.parseLong(ips[0]) + 65536L * Long.parseLong(ips[1]) + 256 * Long.parseLong(ips[2]) + Long.parseLong(ips[3]);
-//        return number;
-//    }
-
     /**
      * IP 转数字
      *
@@ -206,10 +189,10 @@ public class CommonHelper {
      * @return
      */
     public static Long convertIPToLong(String ip) {
-        Long ips = 0L;
+        long ips = 0L;
         String[] numbers = ip.split("\\.");
         //等价上面
-        for (Integer i = 0; i < 4; ++i) {
+        for (int i = 0; i < 4; ++i) {
             ips = ips << 8 | Integer.parseInt(numbers[i]);
         }
         return ips;
@@ -223,16 +206,16 @@ public class CommonHelper {
      */
     public static String convertNumberToIP(Long number) {
         //等价上面
-        String ip = "";
-        for (Integer i = 3; i >= 0; i--) {
-            ip += String.valueOf((number & 0xff));
+        StringBuilder ip = new StringBuilder();
+        for (int i = 3; i >= 0; i--) {
+            ip.append(String.valueOf((number & 0xff)));
             if (i != 0) {
-                ip += ".";
+                ip.append(".");
             }
             number = number >> 8;
         }
 
-        return ip;
+        return ip.toString();
     }
 
 

@@ -10,11 +10,11 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by cqnews on 2017/4/11.
+ * 管理员日志
+ *
+ * @author cqnews
+ * @date 2017/4/11
  */
-
-
-//管理员日志
 @Service(value = "AuthorLogsData")
 public class AuthorLogs extends DataService {
 

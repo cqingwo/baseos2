@@ -44,21 +44,6 @@ public class RedisStrategy implements ICacheStrategy {
     }
 
 
-//    /**
-//     * 测试打印
-//     */
-//    @Override
-//    public String print() {
-//
-//        ValueOperations<String, Object> valueops = redisTemplate
-//                .opsForValue();
-//        valueops.set("222", "测试打印");
-//
-//
-//        System.out.print("测试打印");
-//        return (String) valueops.get("222");
-//    }
-
     /**
      * 获取缓存键值
      *
@@ -214,7 +199,6 @@ public class RedisStrategy implements ICacheStrategy {
         return redisTemplate.delete(key);
 
     }
-
 
 
 }

@@ -60,7 +60,7 @@ public class TokenRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        logger.info("doGetAuthorizationInfo+" + principals.toString()); //System.out.println(principals.getPrimaryPrincipal());
+        logger.info("doGetAuthorizationInfo+" + principals.toString());
 
         SimpleAuthorizationInfo auth = new SimpleAuthorizationInfo();
 
@@ -86,12 +86,9 @@ public class TokenRealm extends AuthorizingRealm {
 
         List<AuthorActionInfo> authorActionList = authors.getUserAuthorActionList(userInfo.getUid());
 
-        for (AuthorActionInfo actionInfo : authorActionList) { //System.out.println(actionInfo.toString());
+        for (AuthorActionInfo actionInfo : authorActionList) {
             auth.addStringPermission(actionInfo.getAction());
         }
-
-        // //System.out.println(auth.getStringPermissions().toString());
-
         return auth;
 
 
@@ -118,8 +115,7 @@ public class TokenRealm extends AuthorizingRealm {
 
 
         PartUserInfo userInfo = null;
-        String token2 = ""; //System.out.println("我应在江湖悠悠,饮一壶浊酒..." + getName()); //System.out.println(authenticationToken.toString());
-
+        String token2 = "";
 
         try {
 
@@ -147,7 +143,7 @@ public class TokenRealm extends AuthorizingRealm {
             Session session = SecurityUtils.getSubject().getSession();
 
 
-            session.setAttribute("userinfo", userInfo); //System.out.println("处理数据,...sawq");
+            session.setAttribute("userinfo", userInfo);
 
 
             AuthUserInfo authUserInfo = new AuthUserInfo(LoginType.TokenLogin, token.getUsername(), userInfo.getUid(), userInfo);

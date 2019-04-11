@@ -17,7 +17,11 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//禁用Ip
+/**
+ * 禁用Ip
+ *
+ * @author cqnews
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -127,7 +127,6 @@ public class UnixTimeHelper {
             c.set(Calendar.MINUTE, 0);
             c.set(Calendar.SECOND, 0);
 
-            // // System.out.println(c.getTime().toLocaleString());
             return getUnixTimeStamp(c);
 
 
@@ -161,7 +160,6 @@ public class UnixTimeHelper {
             c.set(Calendar.MINUTE, 59);
             c.set(Calendar.SECOND, 59);
 
-            //System.out.println(c.getTime().toLocaleString());
             return getUnixTimeStamp(c);
 
 
@@ -204,7 +202,7 @@ public class UnixTimeHelper {
             c.set(Calendar.MINUTE, 0);
             c.set(Calendar.SECOND, 0);
 
-            //System.out.println(c.getTime().toLocaleString());
+
             return getUnixTimeStamp(c);
 
 
@@ -346,8 +344,6 @@ public class UnixTimeHelper {
             c.set(Calendar.MINUTE, 0);
             c.set(Calendar.SECOND, 0);
 
-            // // System.out.println(c.getTime().toLocaleString());
-
             return getUnixTimeStamp(c);
 
 
@@ -387,7 +383,6 @@ public class UnixTimeHelper {
             c.set(Calendar.MINUTE, 59);
             c.set(Calendar.SECOND, 59);
 
-            //System.out.println(c.getTime().toLocaleString());
 
             return getUnixTimeStamp(c);
 
@@ -460,8 +455,6 @@ public class UnixTimeHelper {
             c.set(Calendar.MINUTE, 0);
             c.set(Calendar.SECOND, 0);
 
-            //System.out.println(c.getTime().toLocaleString());
-
             return getUnixTimeStamp(c);
 
         } catch (Exception ex) {
@@ -501,7 +494,6 @@ public class UnixTimeHelper {
             c.set(Calendar.MINUTE, 59);
             c.set(Calendar.SECOND, 59);
 
-            //System.out.println(c.getTime().toLocaleString());
 
             return getUnixTimeStamp(c);
 
@@ -548,13 +540,12 @@ public class UnixTimeHelper {
             int hour = c.get(Calendar.HOUR_OF_DAY);
             int minute = c.get(Calendar.MINUTE);
             int second = c.get(Calendar.SECOND);
-            // System.out.println(year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
             return format.format(c.getTime());
 
 
-        } catch (Exception ex) {
+        } catch (Exception ignored) {
 
         }
 

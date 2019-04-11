@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * @author cqnews
+ */
 @Component(value = "AdminStrategy")
 public class AuthorStrategy implements IAuthorStrategy {
 

@@ -61,11 +61,10 @@ public class UserModularRealmAuthenticator extends ModularRealmAuthenticator {
                 if (realm.getName().equals(loginType.getName())) {
                     typeRealms.add(realm);
                 }
-            } //System.out.println("食肉:" + typeRealms.size());
+            }
 
 
         } catch (Exception ex) {
-            //ex.printStackTrace();
 
             // 所有Realm
             for (Realm realm : realms) {

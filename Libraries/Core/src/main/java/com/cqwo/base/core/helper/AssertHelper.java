@@ -16,6 +16,7 @@ import java.util.Map;
  * 断言工具类，用于检查方法的参数。该类copy自Spring框架。并做了些许修改，使其不再依赖于StringUtils,ObjectUtils,
  * CollectionUtils这三个类。
  * 
+ * @author cqnews
  * @version 1.0
  * @since 1.0
  */

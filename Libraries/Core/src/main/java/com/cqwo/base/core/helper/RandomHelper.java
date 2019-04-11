@@ -132,7 +132,7 @@ public class RandomHelper {
      * @param max
      * @return
      */
-    public static Integer generateInterval(Integer min, Integer max) { //System.out.println("min:" + min); //System.out.println("max:" + max);
+    public static Integer generateInterval(Integer min, Integer max) {
 
         Random random = new Random();
 

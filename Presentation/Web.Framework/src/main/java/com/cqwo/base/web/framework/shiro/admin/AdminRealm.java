@@ -31,7 +31,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by cdyoue on 2016/10/21.
+ *
+ * @author cdyoue
+ * @date 2016/10/21
  */
 
 
@@ -69,7 +71,6 @@ public class AdminRealm extends AuthorizingRealm {
 
         logger.info("doGetAuthorizationInfo+" + principals.toString());
 
-        //System.out.println(principals.getPrimaryPrincipal());
 
         SimpleAuthorizationInfo auth = new SimpleAuthorizationInfo();
 
@@ -153,9 +154,6 @@ public class AdminRealm extends AuthorizingRealm {
         PartUserInfo userInfo = null;
 
         String token2 = "";
-        //System.out.println("我应在江湖悠悠,饮一壶浊酒..." + getName());
-        //System.out.println(authenticationToken.toString());
-
 
         String account = token.getUsername();
 
@@ -187,7 +185,6 @@ public class AdminRealm extends AuthorizingRealm {
 
 
             session.setAttribute("userinfo", userInfo);
-            //System.out.println("处理数据,...sawq");
 
 
             AuthUserInfo authUserInfo = new AuthUserInfo(LoginType.AdminLogin, token.getUsername(), userInfo.getUid(), userInfo);

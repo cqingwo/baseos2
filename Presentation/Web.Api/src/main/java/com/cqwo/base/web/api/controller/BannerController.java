@@ -22,12 +22,6 @@ public class BannerController extends BaseApiController {
 
         List<String> bannerList = new ArrayList<>();
 
-//        List<ActivityInfo> activityBannerList = activitys.getActivityBannerList();
-//
-//        for (ActivityInfo info : activityBannerList) {
-//            bannerList.add(info.getLitpic());
-//        }
-
         return JsonView(SateCollect.SUCCESS, bannerList, "banner加载成功");
 
     }

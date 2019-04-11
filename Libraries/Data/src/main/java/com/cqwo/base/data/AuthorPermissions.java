@@ -10,11 +10,11 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by cqnews on 2017/4/11.
+ * 角色许可表
+ *
+ * @author cqnews
+ * @date 2017/4/11
  */
-
-
-//角色许可表
 @Service(value = "AuthorPermissionsData")
 public class AuthorPermissions extends DataService {
 
@@ -107,7 +107,7 @@ public class AuthorPermissions extends DataService {
      * @param roleId 角色
      * @return 返回AuthorPermissionInfo
      **/
-    public List<AuthorPermissionInfo> getAuthorPermissionListByRoleId(Integer roleId) throws IOException{
+    public List<AuthorPermissionInfo> getAuthorPermissionListByRoleId(Integer roleId) throws IOException {
         return getCwmData().getIAuthorStrategy().getAuthorPermissionListByRoleId(roleId);
     }
 

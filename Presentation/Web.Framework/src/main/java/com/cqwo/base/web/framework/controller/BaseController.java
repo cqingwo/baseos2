@@ -308,17 +308,6 @@ public abstract class BaseController {
         return JsonView(state, "", message);
     }
 
-//    /**
-//     * 返回JsonView
-//     *
-//     * @param object
-//     * @param message
-//     * @return
-//     */
-//    public String JsonView(Object object, String message) {
-//        return JsonView(0, object, message);
-//    }
-
     /**
      * 返回JSON View
      *

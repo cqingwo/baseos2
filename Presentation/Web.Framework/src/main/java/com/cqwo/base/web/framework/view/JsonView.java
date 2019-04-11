@@ -66,15 +66,6 @@ public class JsonView {
      */
     public static String view(Integer state, Object content, String message, HttpServletResponse response) {
 
-//        Map<String, Object> map=new HashMap<String, Object>();
-
-//        response.setCharacterEncoding("UTF-8");
-//        response.setContentType("application/json; charset=utf-8");
-//        response.setHeader("Access-Control-Allow-Origin", "*");
-//        response.setHeader("Access-Control-Allow-Credentials", "true");
-//        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Connection, User-Agent, Cookie");
-//        response.setStatus(200);
-
 
         MessageInfo messageInfo = new MessageInfo();
         messageInfo.setState(state);

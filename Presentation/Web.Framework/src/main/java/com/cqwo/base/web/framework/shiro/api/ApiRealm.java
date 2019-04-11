@@ -25,7 +25,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * Created by cdyoue on 2016/10/21.
+ *
+ * @author cdyoue
+ * @date 2016/10/21
  */
 
 
@@ -58,8 +60,7 @@ public class ApiRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 
-        logger.info("doGetAuthorizationInfo+" + principals.toString()); //System.out.println(principals.getPrimaryPrincipal());
-
+        logger.info("doGetAuthorizationInfo+" + principals.toString());
 
         SimpleAuthorizationInfo auth = new SimpleAuthorizationInfo();
 
@@ -85,11 +86,10 @@ public class ApiRealm extends AuthorizingRealm {
 
         List<AuthorActionInfo> authorActionList = authors.getUserAuthorActionList(userInfo.getUid());
 
-        for (AuthorActionInfo actionInfo : authorActionList) { //System.out.println(actionInfo.toString());
+        for (AuthorActionInfo actionInfo : authorActionList) {
             auth.addStringPermission(actionInfo.getAction());
         }
 
-        // //System.out.println(auth.getStringPermissions().toString());
 
         return auth;
 
@@ -117,8 +117,7 @@ public class ApiRealm extends AuthorizingRealm {
 
 
         PartUserInfo userInfo = null;
-        String token2 = ""; //System.out.println("我应在江湖悠悠,饮一壶浊酒..." + getName()); //System.out.println(authenticationToken.toString());
-
+        String token2 = "";
 
         try {
             users.onLogin(token.getToken());
@@ -143,7 +142,8 @@ public class ApiRealm extends AuthorizingRealm {
             Session session = SecurityUtils.getSubject().getSession();
 
 
-            session.setAttribute("userinfo", userInfo); //System.out.println("处理数据,...sawq");
+            session.setAttribute("userinfo", userInfo);
+
 
             AuthUserInfo authUserInfo = new AuthUserInfo(LoginType.ApiLogin, token.getUsername(), token.getPassword());
 

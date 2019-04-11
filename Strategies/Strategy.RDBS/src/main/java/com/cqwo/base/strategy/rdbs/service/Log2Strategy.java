@@ -1,5 +1,6 @@
 package com.cqwo.base.strategy.rdbs.service;
 
+import com.cqwo.base.core.data.rdbs.repository.authors.AuthorLogRepository;
 import com.cqwo.base.core.data.rdbs.repository.users.CreditLogRepository;
 import com.cqwo.base.core.data.rdbs.repository.users.LoginFailLogRepository;
 import com.cqwo.base.core.data.rdbs.ILog2Strategy;
@@ -21,7 +22,7 @@ import java.util.List;
 public class Log2Strategy implements ILog2Strategy {
 
     @Autowired
-    com.cqwo.base.core.data.rdbs.repository.authors.AuthorLogRepository AuthorLogRepository;
+    AuthorLogRepository authorLogRepository;
 
     //region 管理员日志
 
@@ -35,37 +36,37 @@ public class Log2Strategy implements ILog2Strategy {
     @Override
     public long getAuthorLogCount(Specification<AuthorLogInfo> condition) throws IOException {
 
-        return AuthorLogRepository.count();
+        return authorLogRepository.count();
     }
 
 
     /**
      * 创建一条管理员日志数据
      *
-     * @param AuthorLogInfo 管理员日志模型
+     * @param authorLogInfo 管理员日志模型
      * @return 返回创建信息
      * @throws IOException
      **/
     @Override
-    public AuthorLogInfo createAuthorLog(AuthorLogInfo AuthorLogInfo) throws IOException {
+    public AuthorLogInfo createAuthorLog(AuthorLogInfo authorLogInfo) throws IOException {
 
-        return AuthorLogRepository.save(AuthorLogInfo);
+        return authorLogRepository.save(authorLogInfo);
     }
 
 
     /**
      * 更新一条管理员日志数据
      *
-     * @param AuthorLogInfo 管理员日志模型
+     * @param authorLogInfo 管理员日志模型
      **/
     @Override
-    public AuthorLogInfo updateAuthorLog(AuthorLogInfo AuthorLogInfo) throws IOException {
+    public AuthorLogInfo updateAuthorLog(AuthorLogInfo authorLogInfo) throws IOException {
 
-        if (AuthorLogInfo.getAdminGid() >= 1) {
-            return AuthorLogRepository.save(AuthorLogInfo);
+        if (authorLogInfo.getAdminGid() >= 1) {
+            return authorLogRepository.save(authorLogInfo);
         }
 
-        return AuthorLogInfo;
+        return authorLogInfo;
 
     }
 
@@ -78,7 +79,7 @@ public class Log2Strategy implements ILog2Strategy {
     @Override
     public void deleteAuthorLogByLogid(Integer logid) throws IOException {
 
-        AuthorLogRepository.deleteById(logid);
+        authorLogRepository.deleteById(logid);
     }
 
     /**
@@ -98,7 +99,7 @@ public class Log2Strategy implements ILog2Strategy {
      **/
     @Override
     public AuthorLogInfo getAuthorLogByLogid(Integer logid) throws IOException {
-        return AuthorLogRepository.findById(logid).get();
+        return authorLogRepository.findById(logid).get();
     }
 
 
@@ -112,12 +113,12 @@ public class Log2Strategy implements ILog2Strategy {
     @Override
     public List<AuthorLogInfo> getAuthorLogList(Specification<AuthorLogInfo> condition, Sort sort) throws IOException {
 
-		
+
         if (sort == null) {
             sort = new Sort(Sort.Direction.DESC, "logId");
         }
 
-        return AuthorLogRepository.findAll(condition, sort);
+        return authorLogRepository.findAll(condition, sort);
 
     }
 
@@ -134,18 +135,18 @@ public class Log2Strategy implements ILog2Strategy {
     @Override
     public Page<AuthorLogInfo> getAuthorLogList(Integer pageSize, Integer pageNumber, Specification<AuthorLogInfo> condition, Sort sort) throws IOException {
 
-		
+
         if (sort == null) {
             sort = new Sort(Sort.Direction.DESC, "logId");
         }
 
-if (pageNumber >= 1) {
-    pageNumber--;
-}
+        if (pageNumber >= 1) {
+            pageNumber--;
+        }
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
-        return AuthorLogRepository.findAll(condition, pageable);
+        return authorLogRepository.findAll(condition, pageable);
 
 
     }
@@ -246,12 +247,12 @@ if (pageNumber >= 1) {
     @Override
     public List<CreditLogInfo> getCreditLogList(Specification<CreditLogInfo> condition, Sort sort) throws IOException {
 
-		
+
         if (sort == null) {
             sort = new Sort(Sort.Direction.DESC, "logId");
         }
 
-return creditLogRepository.findAll(condition, sort);
+        return creditLogRepository.findAll(condition, sort);
 
     }
 
@@ -268,14 +269,14 @@ return creditLogRepository.findAll(condition, sort);
     @Override
     public Page<CreditLogInfo> getCreditLogList(Integer pageSize, Integer pageNumber, Specification<CreditLogInfo> condition, Sort sort) throws IOException {
 
-		
+
         if (sort == null) {
             sort = new Sort(Sort.Direction.DESC, "logId");
         }
 
-if (pageNumber >= 1) {
-    pageNumber--;
-}
+        if (pageNumber >= 1) {
+            pageNumber--;
+        }
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
@@ -380,12 +381,12 @@ if (pageNumber >= 1) {
     @Override
     public List<LoginFailLogInfo> getLoginFailLogList(Specification<LoginFailLogInfo> condition, Sort sort) throws IOException {
 
-		
+
         if (sort == null) {
             sort = new Sort(Sort.Direction.DESC, "id");
         }
 
-return loginFailLogRepository.findAll(condition, sort);
+        return loginFailLogRepository.findAll(condition, sort);
 
     }
 
@@ -402,14 +403,14 @@ return loginFailLogRepository.findAll(condition, sort);
     @Override
     public Page<LoginFailLogInfo> getLoginFailLogList(Integer pageSize, Integer pageNumber, Specification<LoginFailLogInfo> condition, Sort sort) throws IOException {
 
-		
+
         if (sort == null) {
             sort = new Sort(Sort.Direction.DESC, "id");
         }
 
-if (pageNumber >= 1) {
-    pageNumber--;
-}
+        if (pageNumber >= 1) {
+            pageNumber--;
+        }
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
@@ -424,7 +425,7 @@ if (pageNumber >= 1) {
      * @param ip
      */
     @Override
-    public void deleteLoginFailLogByIP(Integer ip) throws IOException{
+    public void deleteLoginFailLogByIP(Integer ip) throws IOException {
         loginFailLogRepository.deleteLoginFailLogByIP(ip);
     }
 

@@ -19,6 +19,9 @@ import java.util.List;
 
 public enum PluginType {
 
+    /**
+     * 插件类型
+     */
     OAuthPlugin("OAuthPlugin", 0), PayPlugin("PayPlugin", 1);
 
     // 成员变量

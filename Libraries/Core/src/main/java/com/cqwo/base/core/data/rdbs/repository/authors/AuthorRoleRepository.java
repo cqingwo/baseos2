@@ -7,6 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+/**
+ * @author cqnews
+ */
 public interface AuthorRoleRepository extends BaseRepository<AuthorRoleInfo, Integer> {
 
     /**

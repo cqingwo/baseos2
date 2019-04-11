@@ -17,7 +17,11 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//管理日志
+/**
+ * 管理日志
+ *
+ * @author cqnews
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

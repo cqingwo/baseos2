@@ -23,7 +23,6 @@ public class KaptchaConfig {
         properties.setProperty("kaptcha.session.key", "code");
         properties.setProperty("kaptcha.textproducer.char.length", "4");
         properties.setProperty("kaptcha.textproducer.font.names", "微软雅黑,宋体,楷体");
-        //properties.setProperty("kaptcha.obscurificator.impl", "com.google.code.kaptcha.impl.FishEyeGimpy");
         Config config = new Config(properties);
         defaultKaptcha.setConfig(config);
 

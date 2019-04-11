@@ -22,13 +22,6 @@ public class Map2Helper {
         double maxLongitude = longitude + dlng;
 
 
-//        Map<String, Double> map = new HashMap<>(4);
-//
-//        map.put("minLatitude", minLatitude);
-//        map.put("maxLatitude", maxLatitude);
-//        map.put("minLongitude", minLongitude);
-//        map.put("maxLongitude", maxLongitude);
-
 
         return new AroundPostion(minLatitude, maxLatitude, minLongitude, maxLongitude);
     }
@@ -110,7 +103,7 @@ public class Map2Helper {
     }
 
     public static void main(String[] args) {
-        AroundPostion postion = findNeighPosition(106.459559, 29.51167, 5); //System.out.println(postion.toString());
+        AroundPostion postion = findNeighPosition(106.459559, 29.51167, 5);
 
     }
 

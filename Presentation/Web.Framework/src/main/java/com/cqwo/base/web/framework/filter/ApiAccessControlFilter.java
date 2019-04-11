@@ -42,18 +42,13 @@ public class ApiAccessControlFilter extends FormAuthenticationFilter {
 
         String apiKey = WebHelper.getApiKeyHeader(hsr);
         String apiSecret = WebHelper.getApiSecretHeader(hsr);
-        //String accessToken = WebHelper.getApiTokenHeader(hsr);
 
 
         log.info("当前用户正在访问的 url2 => " + hsr.getHeader("user-agent"));
         log.info("当前用户正在访问的 X-CWMAPI-ApiKey => " + apiKey);
 
 
-        //WebHelper.getApiKeyHeader(request,"uid");
 
-
-        // System.out.println("apiKey:" + apiKey);
-        // System.out.println("apiSecret:" + apiSecret);
 
         if (StringHelper.IsNullOrWhiteSpace(apiKey)) {
             onLoginFail(response);

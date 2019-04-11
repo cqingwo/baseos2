@@ -7,8 +7,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.List;
 
+/**
+ * @author cqnews
+ */
 public interface AuthorSessionRepository extends BaseRepository<AuthorSessionInfo, Integer> {
 
 
@@ -26,7 +30,7 @@ public interface AuthorSessionRepository extends BaseRepository<AuthorSessionInf
      * @param uid    uid
      * @param roleId 角色Id
      */
-    @Transactional
+    @Transactional(rollbackFor = IOException.class)
     @Modifying
     @Query(value = "delete from AuthorSessionInfo info where info.uid = ?1 and info.roleId = ?2")
     void deleteUserAuthorRoleInfo(String uid, Integer roleId);
@@ -38,7 +42,7 @@ public interface AuthorSessionRepository extends BaseRepository<AuthorSessionInf
      * @param roleId 角色Id
      */
     @Modifying
-    @Transactional
+    @Transactional(rollbackFor = IOException.class)
     void deleteAllByUidAndRoleId(String uid, Integer roleId);
 
 }
